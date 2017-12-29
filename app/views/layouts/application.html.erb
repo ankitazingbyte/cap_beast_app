@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Capbeast" %></title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag "application", :media => "all" %>
+
+    <%= javascript_include_tag "application" %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <style>
+  .dropdown-submenu {
+      position: relative;
+  }
+
+  .dropdown-submenu .dropdown-menu {
+      top: 0;
+      left: 100%;
+      margin-top: -1px;
+  }
+  .footer{
+    background: black;
+    height: 400px;
+  }
+
+  </style>
+  </head>
+  <body>
+    <div class = "conatiner">
+      <div class="wrapper">
+        <%= render 'layouts/header' %>
+          <%= yield %>
+        <%= render 'layouts/footer' %>
+      </div>
+    </div> <!-- /container -->
+
+  </body>
+</html>

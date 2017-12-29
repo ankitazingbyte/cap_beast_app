@@ -1,0 +1,38 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require devise_bootstrap_views
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.post {
+    width: 905px;
+    height: 209px;    
+    padding: 14px;
+    border: 1px solid #d2d2d1;
+}
+/* Zoom In Out */
+.hover02 figure img {
+	width: 100%;
+	height: auto;
+	-webkit-transition: all 2s ease;
+     -moz-transition: all 2s ease;
+      -ms-transition: all 2s ease;
+          transition: all 2s ease;
+overflow: hidden;
+}
+.hover02 figure:hover img {
+	width: 110%;
+}

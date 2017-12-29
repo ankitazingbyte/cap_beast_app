@@ -1,0 +1,117 @@
+<header class="header text-uppercase">
+	<div class="container-fluid">
+		<nav class="user-bar text-right">
+			<a href=/login id=""> Login </a> <span>/</span> <a href=/signup id=""> Sign Up</a></p>
+		</nav>
+		<nav class="navbar navbar-default">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-menu" aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="row">
+				<div class="col-sm-2 col-sm-push-10">
+					<form accept-charset="UTF-8" action="/products" class="navbar-form navbar-left" method="get" onsubmit="search_submit(&#39;&#39;)">
+						<div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /></div>
+						<input autofocus="autofocus" class="form-control" id="keywords" name="keywords" placeholder="Search" type="search" />
+						<button type="submit" class="btn btn-default"><i class="icon-search"></i></button>
+					</form> 
+					<div class="nav nav-navbar-right">
+						<li><a class="btn-search" href="#"></a></li>
+						<li><a href="/cart"><%= image_tag "image10.png",height:"30px", width:"30px" %></a></li>
+					</div>
+				</div>
+				<div class="col-sm-10 col-sm-pull-2 main-menu">
+					<div class="collapse navbar-collapse" id="main-menu">
+						<ul class="nav navbar-nav">
+							<li>
+							<ul class="dropdown">
+							    <a href="#" class="dropdown-toggle" data-toggle="dropdown">create
+							    <span class="caret"></span></a>
+							    <div class="dropdown-menu">
+						    		<div class="container-fluid">
+										<div class="row">			<div class="col-sm-3 col-xs-5">
+												<div class="img-holder text-center">
+													<picture>
+													<li><a tabindex="-1" href="#">HTML</a></li>	
+													</picture>
+												</div>
+											</div>	
+											<div class="col-sm-3 col-xs-7">
+												<ul class="list-unstyled">		<li><%= link_to 'Custom Snapbacks' %>
+													</li>
+									      			<li><%= link_to 'Custom Fitted Hats' %></li>
+									      			<li><%= link_to 'Custom Dad Hats' %></li>
+									      			<li><%= link_to'Custom Camo Hats' %></li>
+									      		</ul>
+											</div>
+											<div class="col-sm-3 col-xs-7">
+												<ul class="list-unstyled">
+													<li> <%= link_to'
+													Custom Athletic Hats' %></a></li>
+													<li><%= link_to'Custom Golf Hats' %></li>
+													<li><%= link_to'Custom Military Hats' %></li>
+												</ul>
+											</div>	
+						    			</div>
+						  			</div>
+						  		</div>
+							</ul>
+						</li>
+						<li>
+							<ul class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+									BRANDS <span class="caret"></span></a>
+								<div class="dropdown-menu">
+									<div class="container-fluid">
+										<ul class="brands-list list-inline text-center">
+											<li>
+												<a class="menu-thumbail" href="/brands/new-era"><img alt="New era 2x" src="https://uploads.capbeast.com/spree/general_images/287504/product/new-era-2x.png?1488226617" width="81" /></a>
+											</li>
+											 <li>
+												<a class="menu-thumbail" href="/brands/flexfit"><img alt="Flexfit 2x" src="https://uploads.capbeast.com/spree/general_images/287505/product/flexfit-2x.png?1488226654" width="81" /></a>
+											</li>
+											<li>
+												<a class="menu-thumbail" href="/brands/yupoong"><img alt="Yupoong 2x" src="https://uploads.capbeast.com/spree/general_images/287506/product/yupoong-2x.png?1488226682" width="81" /></a>
+											</li>
+											<li>
+												<a class="menu-thumbail" href="/brands/nike"><img alt="Nike 2x" src="https://uploads.capbeast.com/spree/general_images/287507/product/nike-2x.png?1488226717" width="81" /></a>
+											</li>
+											<li>
+												<a class="menu-thumbail" href="/brands/capbeast-classics"><img alt="Classics 2x" src="https://uploads.capbeast.com/spree/general_images/287508/product/classics-2x.png?1488226761" width="81" /></a>
+											</li>
+											<li>
+												<a class="menu-thumbail" href="/brands/oakley"><img alt="Oakley 2x" src="https://uploads.capbeast.com/spree/general_images/287510/product/oakley-2x.png?1488226784" width="81" /></a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</ul>
+							<li><a href="/faq">FAQ</a></li>
+						</li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+							</li>
+							<li><a href="/request_quote">GET A QUOTE</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</nav>
+	</div>
+</header>
+
+<hr style="margin-top: 0px; border-color: #d2d2d1;" />
+<script>
+$(document).ready(function(){
+  $('.dropdown-menu').on("click", function(e){
+    $(this).next('li').toggle();
+    e.stopPropagation();
+    e.preventDefault();
+  });
+});
+</script>
