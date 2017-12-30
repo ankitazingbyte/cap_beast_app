@@ -1,0 +1,2 @@
+module CustomSnapbacksHelper
+end

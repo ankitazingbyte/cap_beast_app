@@ -1,0 +1,2 @@
+class CustomSnapback < ApplicationRecord
+end

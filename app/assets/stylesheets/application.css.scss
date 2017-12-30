@@ -17,12 +17,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/*class for square box at the end of front page*/
 .post {
     width: 905px;
     height: 209px;    
     padding: 14px;
     border: 1px solid #d2d2d1;
 }
+
 /* Zoom In Out */
 .hover02 figure img {
 	width: 100%;
@@ -31,8 +33,91 @@
      -moz-transition: all 2s ease;
       -ms-transition: all 2s ease;
           transition: all 2s ease;
-overflow: hidden;
+            overflow: hidden;
 }
 .hover02 figure:hover img {
 	width: 110%;
+}
+
+ // Parameters
+
+ $submenuWidth:1000px;
+ $submenuhieght:600px;
+ $borderRadius:4px;
+ $duration:0.33s;
+
+ ul.dropdown{
+    width: $submenuWidth;
+    line-height: 19px;
+    position: relative;
+    margin: auto; 
+    padding: auto;
+    @include border-top-radius($borderRadius);
+
+    li{
+      float: left;
+      height: auto;
+        a{
+          display: block;
+          width: auto;
+          text-decoration: none;
+        }
+      }
+    .row {
+      margin-right: 56px;
+      margin-left: 52px;
+    }
+ }
+
+ ul.dropdown-menu{
+  @include opacity(0);
+  visibility: hidden;
+  display:inline;
+  position: absolute;
+  left: 0;
+  line-height: 40px;
+  li:hover{
+    @include border-bottom-radius($borderRadius);
+  }
+ }
+
+ ul.menu,
+ ul.sub-menu{
+  a{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 0 10px;
+  }
+ }
+  .container-fluid {
+    padding-right: 104px;
+    padding-left: 47px;
+    margin-right: 55px;
+    margin-left: 34px;
+    
+}
+
+.img{
+ display: inline-flex;
+ float: middle;
+ margin-right: 5px;
+ }
+
+div#line1 span#a {
+  display: inline;
+}
+
+div#line1:hover span#a {
+  display: none;
+  background-color: black;
+}
+
+div#line1 span#b {
+  display: none;
+}
+
+div#line1:hover span#b {
+  display: inline;
 }
