@@ -1,0 +1,2 @@
+module CustomFittedHatsHelper
+end

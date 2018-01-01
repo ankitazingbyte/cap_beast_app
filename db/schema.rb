@@ -10,12 +10,135 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171230082935) do
+ActiveRecord::Schema.define(version: 20180101101010) do
+
+  create_table "custom_athletic_hats", force: :cascade do |t|
+    t.string "title"
+    t.string "logo"
+    t.string "image"
+    t.string "back_image"
+    t.string "left_image"
+    t.string "right_image"
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "custom_beanies", force: :cascade do |t|
+    t.string "title"
+    t.string "logo"
+    t.string "image"
+    t.string "back_image"
+    t.string "left_image"
+    t.string "right_image"
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "custom_bucket_hats", force: :cascade do |t|
+    t.string "title"
+    t.string "logo"
+    t.string "image"
+    t.string "back_image"
+    t.string "left_image"
+    t.string "right_image"
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "custom_camo_hats", force: :cascade do |t|
+    t.string "title"
+    t.string "logo"
+    t.string "image"
+    t.string "back_image"
+    t.string "left_image"
+    t.string "right_image"
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "custom_fitted_hats", force: :cascade do |t|
+    t.string "title"
+    t.string "logo"
+    t.string "image"
+    t.string "back_image"
+    t.string "left_image"
+    t.string "right_image"
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "custom_golf_hats", force: :cascade do |t|
+    t.string "title"
+    t.string "logo"
+    t.string "image"
+    t.string "back_image"
+    t.string "left_image"
+    t.string "right_image"
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "custom_military_hats", force: :cascade do |t|
+    t.string "title"
+    t.string "logo"
+    t.string "image"
+    t.string "back_image"
+    t.string "left_image"
+    t.string "right_image"
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "custom_panel_hats", force: :cascade do |t|
+    t.string "title"
+    t.string "logo"
+    t.string "image"
+    t.string "back_image"
+    t.string "left_image"
+    t.string "right_image"
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "custom_snapbacks", force: :cascade do |t|
     t.string "image"
+    t.string "back_image"
+    t.string "right_image"
+    t.string "left_image"
     t.string "logo"
     t.string "title"
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "custom_strapback_hats", force: :cascade do |t|
+    t.string "title"
+    t.string "logo"
+    t.string "image"
+    t.string "back_image"
+    t.string "left_image"
+    t.string "right_image"
+    t.decimal "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "custom_trucker_hats", force: :cascade do |t|
+    t.string "title"
+    t.string "logo"
+    t.string "image"
+    t.string "back_image"
+    t.string "left_image"
+    t.string "right_image"
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

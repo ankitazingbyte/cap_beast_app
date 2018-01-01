@@ -13,12 +13,24 @@
 
   <div class="field">
     <%= form.label :image %>
-    <%= form.text_field :image, id: :custom_snapback_image %>
+    <%= form.file_field :image, id: :custom_snapback_image %>
+  </div>
+  <div class="field">
+    <%= form.label :back_image %>
+    <%= form.file_field :back_image, id: :custom_snapback_image %>
+  </div>
+  <div class="field">
+    <%= form.label :left_image %>
+    <%= form.file_field :left_image, id: :custom_snapback_image %>
+  </div>
+  <div class="field">
+    <%= form.label :right_image %>
+    <%= form.file_field :right_image, id: :custom_snapback_image %>
   </div>
 
   <div class="field">
     <%= form.label :logo %>
-    <%= form.text_field :logo, id: :custom_snapback_logo %>
+    <%= form.file_field :logo, id: :custom_snapback_logo %>
   </div>
 
   <div class="field">

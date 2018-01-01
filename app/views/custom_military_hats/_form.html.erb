@@ -1,0 +1,52 @@
+<%= form_with(model: custom_military_hat, local: true) do |form| %>
+  <% if custom_military_hat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(custom_military_hat.errors.count, "error") %> prohibited this custom_military_hat from being saved:</h2>
+
+      <ul>
+      <% custom_military_hat.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :custom_military_hat_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :logo %>
+    <%= form.text_field :logo, id: :custom_military_hat_logo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image %>
+    <%= form.text_field :image, id: :custom_military_hat_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :back_image %>
+    <%= form.text_field :back_image, id: :custom_military_hat_back_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :left_image %>
+    <%= form.text_field :left_image, id: :custom_military_hat_left_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :right_image %>
+    <%= form.text_field :right_image, id: :custom_military_hat_right_image %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :custom_military_hat_price %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

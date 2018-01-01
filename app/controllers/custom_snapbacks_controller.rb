@@ -1,4 +1,5 @@
 class CustomSnapbacksController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_custom_snapback, only: [:show, :edit, :update, :destroy]
 
   # GET /custom_snapbacks
@@ -69,6 +70,6 @@ class CustomSnapbacksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def custom_snapback_params
-      params.require(:custom_snapback).permit(:image, :logo, :title, :price)
+      params.require(:custom_snapback).permit(:image, :logo, :title, :price, :right_image, :left_image, :back_image)
     end
 end

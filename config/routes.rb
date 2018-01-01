@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  resources :custom_military_hats
+  resources :custom_golf_hats
+  resources :custom_athletic_hats
+  resources :custom_bucket_hats
+  resources :custom_trucker_hats
+  resources :custom_panel_hats
+  resources :custom_beanies
+  resources :custom_camo_hats
+  resources :custom_strapback_hats
+  resources :custom_fitted_hats
 	resources :custom_snapbacks
   	get 'home/index' 
  	root 'home#index' 

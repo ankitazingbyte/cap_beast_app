@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @custom_panel_hat.title %>
+</p>
+
+<p>
+  <strong>Logo:</strong>
+  <%= @custom_panel_hat.logo %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @custom_panel_hat.image %>
+</p>
+
+<p>
+  <strong>Back image:</strong>
+  <%= @custom_panel_hat.back_image %>
+</p>
+
+<p>
+  <strong>Left image:</strong>
+  <%= @custom_panel_hat.left_image %>
+</p>
+
+<p>
+  <strong>Right image:</strong>
+  <%= @custom_panel_hat.right_image %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @custom_panel_hat.price %>
+</p>
+
+<%= link_to 'Edit', edit_custom_panel_hat_path(@custom_panel_hat) %> |
+<%= link_to 'Back', custom_panel_hats_path %>

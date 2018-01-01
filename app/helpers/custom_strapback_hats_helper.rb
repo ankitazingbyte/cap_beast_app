@@ -1,0 +1,2 @@
+module CustomStrapbackHatsHelper
+end

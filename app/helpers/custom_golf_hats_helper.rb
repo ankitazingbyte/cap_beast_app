@@ -1,0 +1,2 @@
+module CustomGolfHatsHelper
+end
