@@ -10,10 +10,8 @@
 							<% @upload_logos.each do |upload_logo| %> 
 							<%= image_tag upload_logo.logo.url, height:"30px" %>
 							<% end %>
-							<div class="text">
-								<% @add_texts.each do |add_text| %>
-									<%= add_text.text %>
-								<% end %>
+							<div class="centered">
+								
 							</div>
 							<div class="fpd-product" title="Front" data-color="Black" data-inches_dimensions='{"width": 0.011527377521613833, "height": 0.013803680981595092024539877, "stitches": 2000}' data-thumbnail="https://uploads.capbeast.com/spree/products/191987/mini/IMG_0131.jpg?1475692677">
 								<div class="fpd-views-selection fpd-grid-contain   btns-set  fpd-clearfix" style="display: block;">
@@ -83,9 +81,14 @@
 									<div class="modal-content">
 										<br>
 										<div class="modal-body">
-											<%=render 'add_texts/form' %>
+											<div class="form-group add_text">
+												<textarea></textarea>
+											</div>
+											<%#=render 'add_texts/form' %>
 										</div>
 										<div class="modal-footer block-form">
+										<button class="btn btn-default add_text_done">Done</button>
+
 											<a href="#" data-dismiss="modal" class="btn btn-secondary">Cancel</a>
 										</div>
 									</div>
@@ -415,7 +418,7 @@
     </tr>
     {% } %}
 </script>
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
 
   // check if jquery is loaded
   	function loadScriptAfterJQueryReady() {
@@ -451,4 +454,15 @@
       	}, 500);
   	}
   	loadScriptAfterJQueryReady();
+
+  	$(".add_text_done").on('click',function(){
+  		textarea_val = $(".add_text").find('textarea').val()
+  		$(".centered").html(textarea_val)
+  		debugger
+  		 $('#myModal').modal('hide')
+
+
+  		// centered
+
+  	})
 </script>
