@@ -1,0 +1,35 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  quantity: 1
+  unit_price: 1.5
+  total_price: 1.5
+  order: one
+  custom_snapback: one
+  custom_strapback_hat: one
+  custom_trucker_hat: one
+  custom_panel_hat: one
+  custom_military_hat: one
+  custom_golf_hat: one
+  custom_fitted_hat: one
+  custom_camo_hat: one
+  custom_bucket_hat: one
+  custom_beanie: one
+  custom_athletic_hat: one
+
+two:
+  quantity: 1
+  unit_price: 1.5
+  total_price: 1.5
+  order: two
+  custom_snapback: two
+  custom_strapback_hat: two
+  custom_trucker_hat: two
+  custom_panel_hat: two
+  custom_military_hat: two
+  custom_golf_hat: two
+  custom_fitted_hat: two
+  custom_camo_hat: two
+  custom_bucket_hat: two
+  custom_beanie: two
+  custom_athletic_hat: two

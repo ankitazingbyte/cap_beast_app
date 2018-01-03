@@ -1,0 +1,2 @@
+module AddTextsHelper
+end

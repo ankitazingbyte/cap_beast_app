@@ -1,0 +1,122 @@
+<main>
+  <div class="container-fluid">
+    <div class="cart-section">
+      <div class="row">
+        <div class="col-sm-8 col-md-9">
+          <h3>Custom Products</h3>
+          <table class="cart-table table">
+            <thead>
+              <tr>
+                <th class="col-photo">ITEM</th>
+                <th class="col-name"></th>
+                <th class="col-unit-price">UNIT PRICE</th>
+                <th class="col-qty">QTY</th>
+                <th class="col-fee">DIGITIZATION <br> FEE</th>
+                <th class="col-price">Total</th>
+                <th class="col-actions"></th>
+              </tr>
+            </thead>
+            <tfoot>
+              <tr>
+                <td colspan="6">
+                  <dl class="summary">
+                    <dt>Subtotal</dt>
+                      <dd>$140.50</dd>
+                    <dt><strong>Order Total</strong></dt>
+                      <dd><strong>$140.50</strong></dd>
+                  </dl>
+                </td>
+              </tr>
+            </tfoot>
+            <tbody>
+              <% @orders.each do |order| %>
+                    <% order.order_items.each do |item|%>
+                      <tr>
+                      <td class="col-photo" data-th="Image">
+                                    <%= image_tag item.custom_snapback.image.url, class: "img-responsive thumbnail", width: "90", height: "90" %>
+                      </td>
+                      <td class="col-name" data-hook="cart_item_description">
+                      <strong class="title"><%= item.custom_snapback.title%></strong>
+                      </td>
+                      <td class="col-unit-price"><strong class="price">$<%= item.unit_price%></strong></td>
+                      <td class="col-qty">
+                      <%= item.quantity%>
+                      </td>
+                      <td class="col-fee">
+                      <strong class="price">
+                      $10.00
+                      </strong>
+                      </td>
+                      <td class="col-price">
+                      <%= item.total_price%>
+                      </td>
+                      <td class="col-actions">
+                      <h4 style align="right"> <%= link_to " ",order_path(order),
+                                        method: :delete, class: "icon-del delete_line_item", 
+                                        data: { confirm: 'Are you sure?' } %></h4>
+                      <a href="/custom_snapbacks/<%= item.custom_snapback.id %>" class= "icon-edit"></a>
+                      </td>
+                      </tr>
+                    <% end %>
+                  <% end %>
+            </tbody>
+          </table>
+        </div>
+        <div class="col-sm-4 col-md-3">
+          <div class="widget-block">
+            <strong class="title">ORDER SUMMARY</strong>
+              <dl class="summary">
+                <dt>Subtotal</dt>
+                  <dd>$140.50</dd>
+                <dt>Shipping total: </dt>
+                  <dd><strong>-</strong></dd>
+                <dt>Taxes: </dt>
+                  <dd><strong>-</strong></dd>
+                <dt><strong>Order Total</strong></dt>
+                  <dd><strong>$140.50</strong></dd>
+              </dl>
+                <a href="/checkout" class="btn btn-danger">CHECKOUT NOW</a>
+            <div class="link">
+                <a href="/products">Continue Shopping</a>
+            </div>
+          </div>
+          <div id="alert-pop">
+            <div class="modal fade" id="cart_delete_warning" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-md">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <br>
+                      <h4 class="text-center">Are you sure you want to remove this item from your cart?</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-sm-12 text-center">
+                        <form accept-charset="UTF-8" action="/orders/CB13881788/remove_line_item" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="delete" /><input name="authenticity_token" type="hidden" value="sKq6pXGLqUMwvjqqOnK0DEcF3xU4fDN0M4Y6hJv44e8=" /></div>
+                        <input id="line_item" name="line_item" type="hidden" />
+                        <br>
+                        <input class="ok btn btn-danger delete-item-from-cart" name="commit" type="submit" value="OK" />
+                        <button class="btn btn-default" data-dismiss="modal" value="Cancel">Cancel</button>
+                        <br>
+                        <br>
+                        </form> 
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="widget-block">
+            <strong class="title">APPLY DISCOUNT</strong>
+              <form accept-charset="UTF-8" action="/cart" class="discount-form" id="update-cart" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="patch" /><input name="authenticity_token" type="hidden" value="sKq6pXGLqUMwvjqqOnK0DEcF3xU4fDN0M4Y6hJv44e8=" /></div>
+                <div class="form-group">
+                  <input type="text" name="order[coupon_code]" class="form-control" placeholder="code">
+                </div>
+                <input type="submit" value="Apply Coupon" class="btn btn-default">
+              </form> 
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>

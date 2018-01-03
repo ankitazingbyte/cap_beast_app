@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Add Texts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Text</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @add_texts.each do |add_text| %>
+      <tr>
+        <td><%= add_text.text %></td>
+        <td><%= link_to 'Show', add_text %></td>
+        <td><%= link_to 'Edit', edit_add_text_path(add_text) %></td>
+        <td><%= link_to 'Destroy', add_text, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Add Text', new_add_text_path %>

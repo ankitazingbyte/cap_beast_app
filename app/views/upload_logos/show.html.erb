@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Logo:</strong>
+  <%= image_tag @upload_logo.logo.url %>
+</p>
+
+<%= link_to 'Edit', edit_upload_logo_path(@upload_logo) %> |
+<%= link_to 'Back', upload_logos_path %>

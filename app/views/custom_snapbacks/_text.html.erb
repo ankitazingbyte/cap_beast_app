@@ -1,0 +1,9 @@
+<%= form_for :custom_snapback do |form| %>
+	<div class="field">
+	    <%= form.label :text %>
+	    <%= form.text_area :text, id: :custom_snapback_text %>
+  	</div>
+	<div class="actions">
+    	<%= form.submit "Done", class: "btn btn-default" %>
+  </div>
+<% end %>

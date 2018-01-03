@@ -1,0 +1,10 @@
+<%= form_for AddText.new do |form| %>
+  <div class="field">
+    <%= form.text_area :text, id: :add_text_text, class: "col-md-6", placeholder: "Enter Your Text" %>
+  </div>
+	<div class= col-md-4>
+	  <div class="actions">
+	    <%= form.submit "done", class: "btn btn-default" %>
+	  </div>
+	</div>
+<% end %>

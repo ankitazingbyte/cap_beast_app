@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :upload_logos
+  resources :add_texts
   resources :custom_military_hats
   resources :custom_golf_hats
   resources :custom_athletic_hats
@@ -17,5 +19,9 @@ Rails.application.routes.draw do
 	get 'home/custom_fitted_hats'
 	get 'home/custom_dad_hats'
 	get 'home/custom_camo_hats'
+  resources :order_statuses
+  resource :cart, only: [:show]
+  resources :order_items, only: [:create, :update, :destroy]
+  resources :orders
 	
 end

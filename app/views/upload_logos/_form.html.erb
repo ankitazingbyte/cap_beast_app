@@ -1,0 +1,10 @@
+<%= form_for UploadLogo.new do |form| %>
+  
+  <div class="field">
+    <%= form.file_field :logo, id: :upload_logo_logo %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Upload Image", class: "btn btn-default" %>
+  </div>
+<% end %>
