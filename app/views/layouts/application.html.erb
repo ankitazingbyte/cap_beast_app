@@ -20,6 +20,11 @@
 
     <%= javascript_include_tag "application" %>
 
+    <%#= javascript_include_tag 'ckeditor/ckeditor' %>
+
+    <script type="text/javascript">
+    var CKEDITOR_BASEPATH = '/ckeditor/';
+</script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://capbeast.com/assets/theme-main-255ef60416f8a69e801afcf3c0b20873c5056da7567b137568a9062a9e515b30.css">
     <link href="assets/spree/frontend/favicon-bfb20bd329d811a1f6f6dc9f4d9c1baedd5e02ee56097cf5b40ed0f55cc63655.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
@@ -27,6 +32,10 @@
     <link href="assets/theme-main-255ef60416f8a69e801afcf3c0b20873c5056da7567b137568a9062a9e515b30.css" media="screen" rel="stylesheet" />
     <link href="/assets/spree/frontend/favicon-bfb20bd329d811a1f6f6dc9f4d9c1baedd5e02ee56097cf5b40ed0f55cc63655.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
     <link href="https://capbeast.com/custom-hats/custom-snapbacks" rel="canonical" />
+
+
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","errorBeacon":"bam.nr-data.net","licenseKey":"fd28623d5d","applicationID":"82359750","transactionName":"IAkMTBBeXA4GQ05EFBEDBxcKXl0HTFgPUwEb","queueTime":0,"applicationTime":316,"agent":""}</script>
@@ -88,9 +97,7 @@
         });
       </script>
       <script async type="text/javascript" src="..//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"></script>
-      <script async type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"></script>
       <script async src="//my.hellobar.com/2b70bf79fe9398eba05941ecf06525da09e1db4f.js" type="text/javascript" charset="utf-8"></script>
-      <script async src="../my.hellobar.com/2b70bf79fe9398eba05941ecf06525da09e1db4f.js" type="text/javascript" charset="utf-8"></script>
       <script defer type="text/javascript" src="../ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <script defer src="../maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
       <script defer="defer" src="assets/theme-main-671542c74fc014fe05e1edac1f6e4dd811c0e3e65aa4c717ffde0f0a00fdb862.js"></script>
@@ -104,10 +111,13 @@
 
       //]]>
     </script>
-    
         <title>Capbeast - Custom Hats, Snapbacks, Fitted Hats &amp; More</title>
         <title><%= content_for?(:title) ? yield(:title) : "Capbeast" %></title>
         <title>Custom Hats - Custom Snapbacks | CapBeast</title>
+
+
+        <title id="Description">With jqxEditor, you can customize which tools are visible and which are not by setting the "tools" property.</title>
+
   </head>
   <body>
     <div class = "conatiner">

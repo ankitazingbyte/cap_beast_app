@@ -54,12 +54,16 @@ display: inline-block;
     width: 278px;
 }
 .centered {
-    border: 1px solid #fff;
+    
     color: white;
     position: absolute;
-    top: 45%;
-    left: 40%;
-    padding: 50px;
+    top: 40%;
+    left: 32%;
+    padding: 70px 15px;
     font-size: 32px;
     font-weight: bold;
     }
+.jqx-layout-group-auto-hide-content-vertical
+{
+    width: 30px;
+}
