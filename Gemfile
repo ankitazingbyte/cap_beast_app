@@ -58,4 +58,4 @@ gem 'devise-bootstrap-views'
 gem 'devise'
 gem 'bootstrap-sass'
 gem "carrierwave"
-gem 'ckeditor-rails', '~> 0.0.5'
+gem "trix"

@@ -19,12 +19,17 @@
     <%= stylesheet_link_tag "application", :media => "all" %>
 
     <%= javascript_include_tag "application" %>
-
-    <%#= javascript_include_tag 'ckeditor/ckeditor' %>
+    
+   <!--  image script -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script type="text/javascript" src="src/jquery.simpleGallery.js"></script>
+    <script type="text/javascript" src="src/jquery.simpleLens.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.simpleLens.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery.simpleGallery.css">
 
     <script type="text/javascript">
     var CKEDITOR_BASEPATH = '/ckeditor/';
-</script>
+    </script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://capbeast.com/assets/theme-main-255ef60416f8a69e801afcf3c0b20873c5056da7567b137568a9062a9e515b30.css">
     <link href="assets/spree/frontend/favicon-bfb20bd329d811a1f6f6dc9f4d9c1baedd5e02ee56097cf5b40ed0f55cc63655.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
@@ -32,8 +37,6 @@
     <link href="assets/theme-main-255ef60416f8a69e801afcf3c0b20873c5056da7567b137568a9062a9e515b30.css" media="screen" rel="stylesheet" />
     <link href="/assets/spree/frontend/favicon-bfb20bd329d811a1f6f6dc9f4d9c1baedd5e02ee56097cf5b40ed0f55cc63655.ico" rel="shortcut icon" type="image/vnd.microsoft.icon" />
     <link href="https://capbeast.com/custom-hats/custom-snapbacks" rel="canonical" />
-
-
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -114,9 +117,10 @@
         <title>Capbeast - Custom Hats, Snapbacks, Fitted Hats &amp; More</title>
         <title><%= content_for?(:title) ? yield(:title) : "Capbeast" %></title>
         <title>Custom Hats - Custom Snapbacks | CapBeast</title>
-
-
-        <title id="Description">With jqxEditor, you can customize which tools are visible and which are not by setting the "tools" property.</title>
+        
+<link id="themecss" rel="stylesheet" type="text/css" href="//www.shieldui.com/shared/components/latest/css/light/all.min.css" />
+    <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript" src="//www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
 
   </head>
   <body>

@@ -33,11 +33,11 @@
                     <% order.order_items.each do |item|%>
                       <tr>
                       <td class="col-photo" data-th="Image">
-                                    <%= image_tag item.custom_snapback.image.url, class: "img-responsive thumbnail", width: "90", height: "90" %>
-                                    <div class="centered myText" id="editor">
+                        <%= image_tag item.custom_snapback.image.url, class: "img-responsive thumbnail", width: "90", height: "90" %>
+                        <div class="centered myText" id="editor">
 
 
-                                    </div>
+                        </div>
                       </td>
                       <td class="col-name" data-hook="cart_item_description">
                       <strong class="title"><%= item.custom_snapback.title%></strong>
@@ -55,8 +55,8 @@
                       <%= item.total_price%>
                       </td>
                       <td class="col-actions">
-                      <h4 style align="right"> <%= link_to " ",order_path(order),
-                                        method: :delete, class: "icon-del delete_line_item", 
+                      <h4 style align="right"><%= link_to "X",order_path(order),
+                                        method: :delete, class: "delete_line_item", 
                                         data: { confirm: 'Are you sure?' } %></h4>
                       <a href="/custom_snapbacks/<%= item.custom_snapback.id %>" class= "icon-edit"></a>
                       </td>

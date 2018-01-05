@@ -13,6 +13,7 @@
  *= require devise_bootstrap_views
  *= require_tree .
  *= require_self
+ *= require trix
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -63,7 +64,97 @@ display: inline-block;
     font-size: 32px;
     font-weight: bold;
     }
+    input[type="text"], input[type="email"], input[type="search"], input[type="password"], input[type="tel"] {
+    -webkit-appearance: none;
+    -webkit-border-radius: 0;
+    box-shadow: none !important;
+    background-color: #524b4b;
+    border: 1px solid black;
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+   text-align: center;
+    margin: -111px;
+    margin-top: -214px;
+    margin-bottom: 144px;
+       height: 134px;
+    width: 371px;
+}
+.navbar-brand>img {
+    display: block;
+    margin: -59px 11px 4px -2px;
+}
+
+
 .jqx-layout-group-auto-hide-content-vertical
 {
     width: 30px;
+}
+/* CSS Document */
+.simpleLens-thumbnails-container a{
+    display: inline-block;
+}
+.simpleLens-thumbnails-container a img{
+    display: block;
+}
+/* CSS Document */
+.simpleLens-container{
+    display: table;
+    position: relative;
+}
+
+.simpleLens-big-image-container {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    position:relative;
+    height: 300px;
+    width: 350px;
+}
+
+.simpleLens-big-image {
+    max-width: 100%;
+}
+
+.simpleLens-lens-image {
+    height: auto !important;
+    width: 350px;
+    display: inline-block;
+    text-align: center;
+    margin:0;
+    box-shadow:none;
+    float:none;
+    position:relative;
+}
+
+.simpleLens-mouse-cursor{
+    background-color:#CCC;
+    opacity:0.2;
+    filter: alpha(opacity = 20);
+    position:absolute;
+    top:0;
+    left:0;
+    border:1px solid #999;
+    box-shadow:0 0 2px 2px #999;
+    cursor:none;
+}
+
+.simpleLens-lens-element {
+    background-color: #FFFFFF;
+    box-shadow: 0 0 2px 2px #8E8E8E;
+    height: 400px;
+    left: 105%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 480px;
+    z-index: 9999;
+    text-align: center;
+}
+
+.simpleLens-lens-element img{
+    position:relative;
+    top:0;
+    left:0;
+    width:auto !important;
+    max-width:none !important;
 }
