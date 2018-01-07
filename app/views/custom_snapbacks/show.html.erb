@@ -6,7 +6,7 @@
           <div class="label-steps text-center">
             <div id="fpd" class="fpd-container fpd-bottom-actions-centered fpd-views-outside" style="margin:auto">
               <input id="ga_price" name="ga_price" type="hidden" value="28.0" />
-              <%= image_tag @custom_snapback.image.url, class: "show_img", id:"myclicked" %>
+              <%= image_tag @custom_snapback.image.url, class: "show_img output", id:"myclicked" %>
 
               <% @upload_logos.each do |upload_logo| %> 
               <%= image_tag upload_logo.logo.url, height:"30px" %>
@@ -135,14 +135,14 @@
             <div class="clearfix">
               <div class="row">
                 <div class-md-2>
-                <a data-toggle="modal" href="#myModal" class="btn btn-default add-text-btn">Add Text</a>
+                <a data-toggle="modal" href="#add-text-Modal" class="btn btn-default add-text-btn">Add Text</a>
               </div>
               <div class-md-8>
                 <a data-toggle="modal" href="#uploadImagePopup" class="btn btn-default add-image-button">Upload Image</a>
               </div>
               </div>
           <!-- add_text_modal -->
-              <div class="product-details modal" id="myModal">
+              <div class="product-details modal" id="add-text-Modal">
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <br>
@@ -184,7 +184,7 @@
                             <input type="file" accept="image/*" onchange="loadFile(event)">
 
                             <h4>My Images</h4>
-                            <img id="output"/>
+                            <img class="output"/>
                             <table class="table table-responsive table-striped">
                             <tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery">
                             </tbody>
@@ -352,90 +352,7 @@
     </div>
   </div>
 </main>
-<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="//code.jquery.com/ui/1.12.1/jquery-ui.min.js" integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
-<script type="text/javascript">window.jQuery || document.write( "<script src=\"/assets/spree/frontend/main/jquery-1.12.4.min-8d35f793d4d7aaba9edcdc7636d15334785fbfa8ca15ee65249dd5ee7a202df1.js\"><\/script>")</script>
-<script defer="defer" src="/assets/theme-product-7fccac86edcbb6153ebf6155e14b9407775732cb3ec104da0455ffe1c8e3eb78.js"></script>
-<script src="/assets/spree/frontend/noty-lib-6a3361b6968ea1fb8082be17cd12a4cfd5b364b6c83c98f611add411568eb01f.js"></script>
-<script>
-  var fileUploadErrors = {
-  maxFileSize: 'File is too big',
-  minFileSize: 'File is too small',
-  acceptFileTypes: 'Filetype not allowed',
-  maxNumberOfFiles: 'Max number of files exceeded',
-  uploadedBytes: 'Uploaded bytes exceed file size',
-  emptyResult: 'Empty file upload result'
-  };
-</script>
 
-<script id="template-upload" type="text/x-tmpl">
-  {% for (var i=0, file; file=o.files[i]; i++) { %}
-  <tr class="template-upload fade">
-      <td class="preview"><span class="fade"></span></td>
-      <td class="name" style="max-width: 100px;word-wrap: break-word"><span>{%=file.name%}</span></td>
-      <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
-      {% if (file.error) { %}
-      <td class="error" colspan="2"><span class="label label-important">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
-      {% } else if (o.files.valid && !i) { %}
-      <td>
-        <div class="progress progress-success progress-striped active"><div class="bar" style="width:0%;"></div></div>
-      </td>
-      <td class="start">{% if (!o.options.autoUpload) { %}
-        <button class="btn btn-primary">
-          <i class="icon-upload icon-white"></i>
-          <span>{%=locale.fileupload.start%}</span>
-        </button>
-        {% } %}</td>
-      {% } else { %}
-      <td colspan="2"></td>
-      {% } %}
-      <td class="cancel">{% if (!i) { %}
-        <button class="btn btn-danger" style="min-width: 35px;font-size: .5rem;padding: 10px;">
-          <i class="icon-del"></i>
-        </button>
-        {% } %}</td>
-  </tr>
-  {% } %}
-</script>
-
-<script id="template-download" type="text/x-tmpl">
-  {% for (var i=0, file; file=o.files[i]; i++) { %}
-    <tr class="template-download fade">
-      {% if (file.error) { %}
-        <td></td>
-        <td class="name" style="max-width: 100px;word-wrap: break-word"><span>{%=file.name%}</span></td>
-        <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
-        <td class="error" colspan="2"><span class="label label-important">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
-        {% } else { %}
-        <td colspan="1">
-          {% $('.upload_image_radio_button').attr("checked",false); %}
-          {% if($('#access_right').is(':checked'))
-           {
-             $('#done-upload-image').prop("disabled",false);
-             $('.access_right_label').css('color', '#666');
-             $('.access_right_label a').css('color', '#666');
-           }
-           %}
-          <input type="radio" value="{%=file.url%}" data-name="{%=file.name%}" data-width="{%=file.width%}" data-height="{%=file.height%}" class="upload_image_radio_button" checked="checked" name="upload_image_radio_button"></input>
-        </td>
-        <td colspan="1" class="preview">{% if (file.thumbnail_url) { %}
-          <a href="{%=file.url%}" title="{%=file.name%}" rel="gallery" download="{%=file.name%}"><img src="{%=file.thumbnail_url%}"></a>
-          {% } %}</td>
-        <td colspan="2" style="max-width: 100px;word-wrap: break-word" class="name">
-          <a href="{%=file.url%}" title="{%=file.name%}" rel="{%=file.thumbnail_url&&'gallery'%}" download="{%=file.name%}">{%=file.name%}</a>
-        </td>
-        <td colspan="1" class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
-        {% } %}
-        <td colspan="2" class="delete">
-          <button class="delete_design btn btn-danger" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}" style="min-width: 35px;font-size: .5rem;padding: 10px;">
-            <i class="icon-del"></i>
-            <!-- <span>{%=locale.fileupload.destroy%}</span> -->
-          </button>
-          <input class="hidden" type="checkbox" name="delete" value="1">
-        </td>
-    </tr>
-    {% } %}
-</script>
 <script type="text/javascript">
 
   // check if jquery is loaded
