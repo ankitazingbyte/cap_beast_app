@@ -54,10 +54,10 @@ display: inline-block;
     width: 278px;
 }
 .centered {
-    
+        height: fit-content;
     color: white;
     position: absolute;
-    top: 40%;
+    top: 21%;
     left: 32%;
     padding: 70px 15px;
     font-size: 32px;
@@ -77,6 +77,8 @@ display: inline-block;
     margin-bottom: 144px;
        height: 134px;
     width: 371px;
+
+ 
 }
 .navbar-brand>img {
     display: block;
@@ -84,8 +86,11 @@ display: inline-block;
 }
 
 
-.myclass{
-    height:30px;
-    width:30px;
-   
-}
+
+
+
+
+
+
+
+

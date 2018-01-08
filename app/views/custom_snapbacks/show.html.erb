@@ -7,7 +7,7 @@
             <div id="fpd" class="fpd-container fpd-bottom-actions-centered fpd-views-outside" style="margin:auto">
               <input id="ga_price" name="ga_price" type="hidden" value="28.0" />
               <%= image_tag @custom_snapback.image.url, class: "show_img", id:"myclicked" %>
-<img id="output" height="100px" class="myclass" />
+              <img id="output" class="centered" />
               <% @upload_logos.each do |upload_logo| %> 
               <%= image_tag upload_logo.logo.url, height:"30px" %>
               <% end %>
@@ -186,8 +186,7 @@
                             <h4>My Images</h4>
                             <img id="output" height="100px" />
                             <table class="table table-responsive table-striped">
-                            <tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery">
-                            </tbody>
+                            <tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery"></tbody>
                             </table>
                         </div>
                       </div>
@@ -195,16 +194,17 @@
                     
                     <div class="modal-footer block-form" style="text-align: left !important">
                       <div class="row">
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                           <p>
                             <label style="color: red;" class="access_right_label">
                               <input type="checkbox" id="access_right"></input> &nbsp;I accept the <a style="color:red;text-decoration:underline" target="_blank" href="/terms-and-conditions">terms and conditions</a> of CapBeast.com
                             </label>
                           </p>
-                        </div>
+                        </div> -->
                         <div class="col-md-6" style="text-align:right">
-                          <a href="#" data-dismiss="modal" class="btn btn-opposite">Cancel</a>
-                          <button class="btn btn-danger" id="done-upload-image" disabled="disabled">Done</button>
+                          <a href="#" data-dismiss="modal" class="btn btn-opposite">Done</a>
+                          <!-- <button class="btn btn-danger" id="done-upload-image" disabled="disabled">Done</button> -->
+                          <button type="button" class="btn btn-close" data-dismiss="modal" aria-hidden="true">×</button>
                         </div>
                       </div>
                     </div>
@@ -228,14 +228,14 @@
                 <div class="row product-colors-section">
                   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="product-image">
-                      <img id="product-zoom" src=https://uploads.capbeast.com/spree/products/191987/original/IMG_0131.jpg?1475692677 alt="" class="img-responsive">
+                      <!-- <img id="product-zoom" src=https://uploads.capbeast.com/spree/products/191987/original/IMG_0131.jpg?1475692677 alt="" class="img-responsive"> -->
                     </div>
                   </div>
                   <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
                     <div class="clearfix product-color-information">
                       <label class="pull-left">Available Colors</label>
                     </div>
-                    <ul class="set-color list-inline">
+                    <!-- <ul class="set-color list-inline">
                     <li class="change_color_image" style="text-decoration: none;" data-index="0" data-url=/products/flat-bill-snapback-new-era/get_variant_image_url?variant_id=2418>
                     <div class="variant_source hide" id="https://uploads.capbeast.com/spree/products/191987/original/IMG_0131.jpg?1475692677"></div>
                     <div class="" style="background: linear-gradient(to bottom, #000000  50%,  #030303 50%);"></div>
@@ -260,13 +260,13 @@
                     <div class="variant_source hide" id="https://uploads.capbeast.com/spree/products/261065/original/FLAT_BILL_9FIFTY_SNAPBACK__NEW_ERA_CAMO_-_Front_View.jpg?1485186371"></div>
                     <div class="" style="background: linear-gradient(to bottom, #030303  50%,  #1F5919  50%);"></div>
                     </li>
-                    </ul>
+                    </ul> -->
                   </div>
                 </div>
               </div>
               <div class="modal-footer block-form">
-                <a href="#" data-dismiss="modal" class="btn btn-danger">Cancel</a>
-                <button class="btn btn-default" id="done-color-chooser" data-url=/products/flat-bill-snapback-new-era/get_variant_image_url?variant_id=2418 data-index="0" data-modal_id="colorModal1">Done</button>
+                <!-- <a href="#" data-dismiss="modal" class="btn btn-danger">Cancel</a>
+                <button class="btn btn-default" id="done-color-chooser" data-url=/products/flat-bill-snapback-new-era/get_variant_image_url?variant_id=2418 data-index="0" data-modal_id="colorModal1">Done</button> -->
               </div>
             </div>
           </div>
