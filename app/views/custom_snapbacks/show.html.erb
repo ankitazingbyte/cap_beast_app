@@ -6,8 +6,8 @@
           <div class="label-steps text-center">
             <div id="fpd" class="fpd-container fpd-bottom-actions-centered fpd-views-outside" style="margin:auto">
               <input id="ga_price" name="ga_price" type="hidden" value="28.0" />
-              <%= image_tag @custom_snapback.image.url, class: "show_img output", id:"myclicked" %>
-
+              <%= image_tag @custom_snapback.image.url, class: "show_img", id:"myclicked" %>
+<img id="output" height="100px" class="myclass" />
               <% @upload_logos.each do |upload_logo| %> 
               <%= image_tag upload_logo.logo.url, height:"30px" %>
               <% end %>
@@ -184,7 +184,7 @@
                             <input type="file" accept="image/*" onchange="loadFile(event)">
 
                             <h4>My Images</h4>
-                            <img class="output"/>
+                            <img id="output" height="100px" />
                             <table class="table table-responsive table-striped">
                             <tbody class="files" data-toggle="modal-gallery" data-target="#modal-gallery">
                             </tbody>
@@ -353,131 +353,115 @@
   </div>
 </main>
 
-<script type="text/javascript">
+<!-- ADD TEXT BOX MODAL  -->
+  <script type="text/javascript">
 
-  // check if jquery is loaded
-    function loadScriptAfterJQueryReady() {
-        setTimeout(function () {
-            var loadScript=true;
-            if (typeof jQuery == 'undefined') {
-                if (typeof window.jQuery == 'undefined') {
-                /* jQuery is not loaded */
-                  loadScript=false;
-                  loadScriptAfterJQueryReady(jsFile);
-                }
-            }
-            if(true==loadScript){
-                $(function () {
-                  // Initialize the jQuery File Upload widget:
-                    $('#fileupload').fileupload({autoUpload: true, acceptFileTypes: /(\.|\/)(png||bmp||jpeg||gif)$/i, maxFileSize: 20000000 });
-                  // Load existing files:
-                    $.getJSON($('#fileupload').prop('action'), function (files) {
-                      var fu = $('#fileupload').data('blueimpFileupload'),
-                          template;
-                      fu._adjustMaxNumberOfFiles(-files.length);
-                      template = fu._renderDownload(files)
-                          .appendTo($('#fileupload .files'));
-                        // Force reflow:
-                      fu._reflow = fu._transition && template.length &&
-                          template[0].offsetWidth;
-                      template.addClass('in');
-                        $('#loading').remove();
-                    });
+      $(".add_text_done").on('click',function(){
+        textarea_val = $(".add_text").find('textarea').val()
+        $(".centered").html(textarea_val)
+        debugger
+         $('#myModal').modal('hide')
 
-                });
-            }
-        }, 500);
-    }
-    loadScriptAfterJQueryReady();
+        // centered
 
-    $(".add_text_done").on('click',function(){
-      textarea_val = $(".add_text").find('textarea').val()
-      $(".centered").html(textarea_val)
-      debugger
-       $('#myModal').modal('hide')
+      })
+  </script>
+<!-- END -->
 
-      // centered
 
-    })
-</script>
+<!-- TEXT SHOW BY UI -->
+  <script>
+    $(function() {
+      $('div.myText').on('click', function() {
+        var div = $(this);
+        var tb = div.find('input:text');//get textbox, if exist
+        if (tb.length) {//text box already exist
+          div.text(tb.val());//remove text box & put its current value as text to the div
+        } else {
+          tb = $('<input>').prop({
+            'type': 'text',
+            'value': div.text()//set text box value from div current text
+          });
+          div.empty().append(tb);//add new text box
+          tb.focus();//put text box on focus
+
+        }
+      });
+    });
+  </script>
+<!-- END -->
 
 <!-- change image onmousehover written by me -->
-<script>
-function myFunction() {
-    var image = document.getElementById('myclicked');
-    if (image.src.match("snapfront1")) {
-        image.src = "<%= asset_path( 'snapfront1.jpg' ) %>";
-    } else {
-        image.src = "<%= asset_path( 'snapfront1.jpg' ) %>";
-  }
-}
-function mybackFunction() {
-    var image = document.getElementById('myclicked');
-    if (image.src.match("snapback1")) {
-        image.src = "<%= asset_path( 'snapfront1.jpg' ) %>";
-    } else {
-        image.src = "<%= asset_path( 'snapback1.jpg' ) %>";
-  }
-}
-
-function myleftFunction() {
-    var image = document.getElementById('myclicked');
-    if (image.src.match("snapleft1")) {
-        image.src = "<%= asset_path( 'snapfront1.jpg' ) %>";
-    } else {
-        image.src = "<%= asset_path( 'snapleft1.jpg' ) %>";
-  }
-}
-
-function myrightFunction() {
-    var image = document.getElementById('myclicked');
-    if (image.src.match("snapright1")) {
-        image.src = "<%= asset_path( 'snapfront1.jpg' ) %>";
-    } else {
-        image.src = "<%= asset_path( 'snapright1.jpg' ) %>";
-  }
-}
-</script>
-
-<script>
-function whichElement(e) {
-    var targ;
-    if (!e) {
-        var e = window.event;
+  <script>
+  function myFunction() {
+      var image = document.getElementById('myclicked');
+      if (image.src.match("snapfront1")) {
+          image.src = "<%= asset_path( 'snapfront1.jpg' ) %>";
+      } else {
+          image.src = "<%= asset_path( 'snapfront1.jpg' ) %>";
     }
-    if (e.target) {
-        targ=e.target;
-    } else if (e.srcElement) {
-        targ=e.srcElement;
+  }
+  function mybackFunction() {
+      var image = document.getElementById('myclicked');
+      if (image.src.match("snapback1")) {
+          image.src = "<%= asset_path( 'snapfront1.jpg' ) %>";
+      } else {
+          image.src = "<%= asset_path( 'snapback1.jpg' ) %>";
     }
-    var tname;
-    tname = targ.tagName;
-    alert("You clicked on a " + tname + " element.");
-}
-</script>
+  }
 
+  function myleftFunction() {
+      var image = document.getElementById('myclicked');
+      if (image.src.match("snapleft1")) {
+          image.src = "<%= asset_path( 'snapfront1.jpg' ) %>";
+      } else {
+          image.src = "<%= asset_path( 'snapleft1.jpg' ) %>";
+    }
+  }
 
-<script>
-  $(function() {
-  $('div.myText').on('click', function() {
-    var div = $(this);
-    var tb = div.find('input:text');//get textbox, if exist
-    if (tb.length) {//text box already exist
-      div.text(tb.val());//remove text box & put its current value as text to the div
-    } else {
-      tb = $('<input>').prop({
-        'type': 'text',
-        'value': div.text()//set text box value from div current text
+  function myrightFunction() {
+      var image = document.getElementById('myclicked');
+      if (image.src.match("snapright1")) {
+          image.src = "<%= asset_path( 'snapfront1.jpg' ) %>";
+      } else {
+          image.src = "<%= asset_path( 'snapright1.jpg' ) %>";
+    }
+  }
+  </script>
+<!-- END -->
+
+<!-- UPLOAD LOGO JAVASCRIPT-->
+  <script>
+    var loadFile = function(event) {
+      var output = document.getElementById('output');
+      output.src = URL.createObjectURL(event.target.files[0]);
+    };
+  </script>
+  <script>
+    window.addEventListener('load', function() {
+      document.querySelector('input[type="file"]').addEventListener('change', function() {
+          if (this.files && this.files[0]) {
+              var img = document.querySelector('img');  // $('img')[0]
+              // img.src = URL.createObjectURL(this.files[0]); // set src to file url
+              img.onload = imageIsLoaded; // optional onload event listener
+          }
       });
-      div.empty().append(tb);//add new text box
-      tb.focus();//put text box on focus
+    });
+    function imageIsLoaded(e) { alert(e); }
+  </script>
+<!-- END -->
 
+<!-- QUANTITY SHOW -->  
+ <script>
+    function myqty() {
+        var x = document.getElementById("myNumber").value;
+        document.getElementById("qty").innerHTML = x;
     }
-  });
-});
-</script>
+  </script>
+<!--  END -->
+<!-- EDITOR -->
 <script>
-$(document).ready(function () {
+  $(document).ready(function () {
             $('#editor').jqxEditor({
                 height: 400,
                 width: getWidth('editor'),
@@ -485,29 +469,21 @@ $(document).ready(function () {
             });
         });
 </script>
-
-<script>
-  var loadFile = function(event) {
-    var output = document.getElementById('output');
-    output.src = URL.createObjectURL(event.target.files[0]);
-  };
-</script>
-<script>
-window.addEventListener('load', function() {
-  document.querySelector('input[type="file"]').addEventListener('change', function() {
-      if (this.files && this.files[0]) {
-          var img = document.querySelector('img');  // $('img')[0]
-          img.src = URL.createObjectURL(this.files[0]); // set src to file url
-          img.onload = imageIsLoaded; // optional onload event listener
+<!-- ADD TO CARD POPUP ERROR -->
+  <script>
+  function whichElement(e) {
+      var targ;
+      if (!e) {
+          var e = window.event;
       }
-  });
-});
-
-function imageIsLoaded(e) { alert(e); }
-</script>
-<script>
-function myqty() {
-    var x = document.getElementById("myNumber").value;
-    document.getElementById("qty").innerHTML = x;
-}
-</script>
+      if (e.target) {
+          targ=e.target;
+      } else if (e.srcElement) {
+          targ=e.srcElement;
+      }
+      var tname;
+      tname = targ.tagName;
+      alert("You clicked on a " + tname + " element.");
+  }
+  </script>
+<!-- END -->
