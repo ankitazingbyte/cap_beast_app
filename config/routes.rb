@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :upload_logos
   resources :add_texts
   resources :custom_military_hats
@@ -19,6 +20,9 @@ Rails.application.routes.draw do
 	get 'home/custom_fitted_hats'
 	get 'home/custom_dad_hats'
 	get 'home/custom_camo_hats'
+  get 'home/login_form'
+  get 'home/forget_psw'
+  get 'home/signup_form'
   resources :order_statuses
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]

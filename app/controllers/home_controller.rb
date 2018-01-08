@@ -15,4 +15,14 @@ class HomeController < ApplicationController
   def custom_camo_hats
 
   end
+  def login_form
+
+  end
+  def forget_psw
+    
+  end
+  def signup_form
+    
+  end
+
 end

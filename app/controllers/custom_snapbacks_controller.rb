@@ -1,7 +1,7 @@
 class CustomSnapbacksController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_custom_snapback, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /custom_snapbacks
   # GET /custom_snapbacks.json
   def index

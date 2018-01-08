@@ -1,6 +1,5 @@
 class CustomStrapbackHatsController < ApplicationController
   before_action :set_custom_strapback_hat, only: [:show, :edit, :update, :destroy]
-
   # GET /custom_strapback_hats
   # GET /custom_strapback_hats.json
   def index

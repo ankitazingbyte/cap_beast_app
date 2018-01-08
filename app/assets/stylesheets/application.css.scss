@@ -63,7 +63,7 @@ display: inline-block;
     font-size: 32px;
     font-weight: bold;
     }
-    input[type="text"], input[type="email"], input[type="search"], input[type="password"], input[type="tel"] {
+    input[type="text"], input[type="search"], input[type="tel"] {
     -webkit-appearance: none;
     -webkit-border-radius: 0;
     box-shadow: none !important;
@@ -84,7 +84,6 @@ display: inline-block;
     display: block;
     margin: -59px 11px 4px -2px;
 }
-
 
 
 
