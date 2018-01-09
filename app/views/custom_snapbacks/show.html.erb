@@ -8,13 +8,13 @@
               <input id="ga_price" name="ga_price" type="hidden" value="28.0" />
               <%= image_tag @custom_snapback.image.url, class: "show_img", id:"myclicked" %>
               <img id="output" class="centered" />
-              <% @upload_logos.each do |upload_logo| %> 
-              <%= image_tag upload_logo.logo.url, height:"30px" %>
-              <% end %>
-              <div class="centered myText" id="myImg">
- 
+              <div id="editor">
+                <div class="centered myText" id='edit'>
+   
 
+                </div>
               </div>
+              
               <div class="fpd-product">
                 <div class="fpd-views-selection fpd-grid-contain   btns-set  fpd-clearfix" style="display: block;">
                   <div class="fpd-item fpd-tooltip tooltipstered fpd-view-active col-md-3" title="front">
@@ -148,7 +148,7 @@
                     <br>
                     <div class="modal-body">
                       <div class="form-group add_text">
-                        <textarea style="width:100%;height:100px" id="editor">
+                        <textarea style="width:100%;height:100px">
 
                           
 
@@ -359,7 +359,6 @@
       $(".add_text_done").on('click',function(){
         textarea_val = $(".add_text").find('textarea').val()
         $(".centered").html(textarea_val)
-        debugger
          $('#myModal').modal('hide')
 
         // centered
@@ -367,10 +366,63 @@
       })
   </script>
 <!-- END -->
+<!-- <script>
+    var dataItem;
 
+    $("#grid").kendoGrid({
+        columns: [
+            {
+                template: "<div class='contentDivs' style='white-space: nowrap; height: 25px; overflow: hidden; max-width:65%; float: left;'>#= text #</div><button class='editButtons' style='float:right'>Edit</button>",
+                width: "300px"
+            },
+            
+        ],
+        dataSource: {
+            data: [{
+                    
+                    text: "Lorem ipsum dolor lis in magna. In feugiat non ipsum a laoreet. Nulla facilisi.",
+                  
+                },
+                
+            ]
+        },
+        dataBound: onDataBound
+    });
+
+    function onDataBound(e) {
+        $(".contentDivs").children().css("display", "table-cell");
+        $(".editButtons").kendoButton({
+            click: function(e) {
+                var grid = $("#grid").data("kendoGrid");
+                var editor = $("#editor").data("kendoEditor");
+                var window = $("#window").data("kendoWindow");
+                var row = e.sender.element.closest("tr");
+                var dataItem = grid.dataItem(row);
+
+                kendo.bind(editor.element, dataItem);
+                window.open().center();
+            }
+        });
+    };
+
+    $("#window").kendoWindow({
+        width: "600px",
+        visible: false,
+        modal: true,
+        close: function(e) {
+            e.sender.element.focus()
+        },
+        actions: [
+            "Maximize",
+            "Close"
+        ],
+    });
+    $("#editor").kendoEditor();
+</script>
+ -->
 
 <!-- TEXT SHOW BY UI -->
-  <script>
+ <!--  <script>
     $(function() {
       $('div.myText').on('click', function() {
         var div = $(this);
@@ -388,7 +440,16 @@
         }
       });
     });
+  </script> -->
+  <!-- EDITOR UPDATE -->
+  <script>
+    $(function(){
+       $('#edit').froalaEditor({
+         editInPopup: true
+      })
+    });
   </script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.0//js/froala_editor.pkgd.min.js"></script>
 <!-- END -->
 
 <!-- change image onmousehover written by me -->
@@ -487,3 +548,5 @@
   }
   </script>
 <!-- END -->
+
+  

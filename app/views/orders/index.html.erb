@@ -33,9 +33,10 @@
                     <% order.order_items.each do |item|%>
                       <tr>
                       <td class="col-photo" data-th="Image">
-                        <%= image_tag item.custom_snapback.image.url, class: "img-responsive thumbnail", width: "90", height: "90" %>
+                        <%= image_tag item.custom_snapback.image.url, class: "img-responsive thumbnail", width: "90", height: "90"%>
                         <img id="output" class="centered" />
-                        <div class="centered myText" id="editor">
+                        <div class="centered myText" id="edit">
+
 
 
                         </div>
@@ -82,7 +83,7 @@
               </dl>
                 <a href="/checkout" class="btn btn-danger">CHECKOUT NOW</a>
             <div class="link">
-                <a href="/products">Continue Shopping</a>
+                <%= link_to'Continue Shopping', home_index_path %>
             </div>
           </div>
           <div id="alert-pop">
@@ -96,7 +97,7 @@
                   <div class="modal-body">
                     <div class="row">
                       <div class="col-sm-12 text-center">
-                        <form accept-charset="UTF-8" action="/orders/CB13881788/remove_line_item" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="delete" /><input name="authenticity_token" type="hidden" value="sKq6pXGLqUMwvjqqOnK0DEcF3xU4fDN0M4Y6hJv44e8=" /></div>
+                        <form accept-charset="UTF-8" action="/orders/CB13881788/remove_line_item" method="post"><div style="display:none"><!-- <input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="delete" /><input name="authenticity_token" type="hidden" value="sKq6pXGLqUMwvjqqOnK0DEcF3xU4fDN0M4Y6hJv44e8=" /> --></div>
                         <input id="line_item" name="line_item" type="hidden" />
                         <br>
                         <input class="ok btn btn-danger delete-item-from-cart" name="commit" type="submit" value="OK" />
@@ -113,12 +114,12 @@
           </div>
           <div class="widget-block">
             <strong class="title">APPLY DISCOUNT</strong>
-              <form accept-charset="UTF-8" action="/cart" class="discount-form" id="update-cart" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="patch" /><input name="authenticity_token" type="hidden" value="sKq6pXGLqUMwvjqqOnK0DEcF3xU4fDN0M4Y6hJv44e8=" /></div>
+              <!-- <form accept-charset="UTF-8" action="/cart" class="discount-form" id="update-cart" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="patch" /><input name="authenticity_token" type="hidden" value="sKq6pXGLqUMwvjqqOnK0DEcF3xU4fDN0M4Y6hJv44e8=" /></div>
                 <div class="form-group">
                   <input type="text" name="order[coupon_code]" class="form-control" placeholder="code">
                 </div>
                 <input type="submit" value="Apply Coupon" class="btn btn-default">
-              </form> 
+              </form>  -->
           </div>
         </div>
       </div>

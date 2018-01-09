@@ -45,7 +45,7 @@
     padding: 0px 8px 0px 40px;
 }
 .text{
-display: inline-block;
+    display: inline-block;
     text-align: center;
     margin: -111px;
     margin-top: -214px;
@@ -54,7 +54,7 @@ display: inline-block;
     width: 278px;
 }
 .centered {
-        height: fit-content;
+    height: fit-content;
     color: white;
     position: absolute;
     top: 21%;
@@ -71,12 +71,12 @@ display: inline-block;
     border: 1px solid black;
     opacity: 0.6;
     filter: alpha(opacity=60);
-   text-align: center;
+    text-align: left;
     margin: -111px;
-    margin-top: -214px;
+    margin-top: 22px;
     margin-bottom: 144px;
-       height: 134px;
-    width: 371px;
+    height: 170px;
+    width: 400px;
 
  
 }
@@ -89,7 +89,12 @@ display: inline-block;
 
 
 
+div#editor {
+  width: 100%;
+  margin: auto;
+  text-align: left;
+}
 
-
-
-
+#edit {
+  display: inline-block;
+}
