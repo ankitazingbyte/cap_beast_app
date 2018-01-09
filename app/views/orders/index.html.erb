@@ -42,9 +42,9 @@
                         </div>
                       </td>
                       <td class="col-name" data-hook="cart_item_description">
-                      <strong class="title"><%= item.custom_snapback.title%></strong>
+                      <strong class="title"><%= item.custom_snapback.title %></strong>
                       </td>
-                      <td class="col-unit-price"><strong class="price">$<%= item.unit_price%></strong></td>
+                      <td class="col-unit-price"><strong class="price">$<%= item.unit_price %></strong></td>
                       <td class="col-qty">
                       <%= item.quantity%>
                       </td>
@@ -64,7 +64,7 @@
                       </td>
                       </tr>
                     <% end %>
-                  <% end %>
+              <% end %>
             </tbody>
           </table>
         </div>
@@ -81,7 +81,7 @@
                 <dt><strong>Order Total</strong></dt>
                   <dd><strong>$140.50</strong></dd>
               </dl>
-                <a href="/checkout" class="btn btn-danger">CHECKOUT NOW</a>
+                <%= link_to 'CHECKOUT NOW', home_checkout_path, class: "btn btn-danger" %>
             <div class="link">
                 <%= link_to'Continue Shopping', home_index_path %>
             </div>

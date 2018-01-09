@@ -1,18 +1,18 @@
 class CustomSnapbacksController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_custom_snapback, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   # GET /custom_snapbacks
   # GET /custom_snapbacks.json
   def index
     @custom_snapbacks = CustomSnapback.all
-    @order_item = current_order.order_items.new
+    # @order_item = current_order.order_items.new
   end
 
   # GET /custom_snapbacks/1
   # GET /custom_snapbacks/1.json
   def show
-    @order_item = current_order.order_items.new
+    # @order_item = current_order.order_items.new
     @add_texts = AddText.all
     @upload_logos = UploadLogo.all
      # @add_text = AddText.find(params[:id])

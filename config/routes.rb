@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :addresses
   devise_for :users
   resources :upload_logos
   resources :add_texts
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
   get 'home/login_form'
   get 'home/forget_psw'
   get 'home/signup_form'
+  get 'home/checkout'
   resources :order_statuses
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]

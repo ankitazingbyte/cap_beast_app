@@ -1,0 +1,84 @@
+<main>
+<div class="container-fluid">
+
+<div class="row">
+<div class="col-md-6 col-md-offset-3 text-center">
+<h2>CHECKOUT</h2>
+</div>
+</div>
+<div class="row">
+<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+
+<ul class="nav nav-pills  nav-justified">
+<li class="btn-checkout">
+<a href="/checkout/address" class="btn btn-default btn-checkout">Address</a>
+</li>
+<li class="btn-checkout">
+<a href="#" class="btn btn-default">Shipping Method</a>
+</li>
+<li class="">
+<a href="#" class="btn btn-default btn-checkout">Payment &amp; Confirm</a>
+</li>
+</ul>
+
+<div class="tab-content">
+<form accept-charset="UTF-8" action="/checkout/update/delivery" class="main-form" id="checkout_form_delivery" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="patch" /><input name="authenticity_token" type="hidden" value="6IhDibYRw3rmjqWdawyJuQ5aTUIOVWSln3wtEO5+dLw=" /></div>
+<div class="tab-pane" id="shipping">
+<br>
+<div class="row">
+<div class="col-md-6">
+ <h4>United States - Standard shipping</h4>
+<div class="radio">
+<label class="color-active">
+<input checked="checked" id="order_shipments_attributes_0_selected_shipping_rate_id_201433" name="order[shipments_attributes][0][selected_shipping_rate_id]" type="radio" value="201433" />
+$15.00
+</label>
+</div>
+Standard shipping is 3-5 business days.
+Keep in mind that production may take up to 2 weeks.
+</div>
+<div class="col-md-6">
+<h4>United States - Express shipping</h4>
+<div class="radio">
+<label class="color-active">
+<input id="order_shipments_attributes_0_selected_shipping_rate_id_201434" name="order[shipments_attributes][0][selected_shipping_rate_id]" type="radio" value="201434" />
+$26.00
+</label>
+</div>
+Express shipping is 2-3 business days.
+Keep in mind that production may take up to 2 weeks.
+</div>
+</div>
+<hr>
+<input class="btn btn-danger checkout_submit" name="commit" type="submit" value="Save and continue" />
+</div>
+<input id="order_shipments_attributes_0_id" name="order[shipments_attributes][0][id]" type="hidden" value="61239" />
+</form> </div>
+</div>
+<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+<div class="widget-block">
+<strong class="title">ORDER SUMMARY</strong>
+<dl class="summary">
+<dt>Subtotal</dt>
+<dd>$114.00</dd>
+<dt>Shipping total: </dt>
+<dd>$15.00</dd>
+<dt>Taxes: </dt>
+<dd><strong>-</strong></dd>
+<dt><strong>Order Total</strong></dt>
+<dd><strong>$129.00</strong></dd>
+</dl>
+</div>
+<div class="widget-block">
+<strong class="title">APPLY DISCOUNT</strong>
+<form accept-charset="UTF-8" action="/orders/CB13881788/apply_coupon" class="discount-form" id="update-cart" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="patch" /><input name="authenticity_token" type="hidden" value="6IhDibYRw3rmjqWdawyJuQ5aTUIOVWSln3wtEO5+dLw=" /></div>
+<div class="form-group">
+<input type="text" name="order[coupon_code]" class="form-control" placeholder="code">
+<input type="hidden" name="order[state]" value="delivery" class="form-control">
+</div>
+<input type="submit" value="Apply Coupon" class="btn btn-default">
+</form> </div>
+</div>
+</div>
+</div>
+</main>

@@ -24,5 +24,7 @@ class HomeController < ApplicationController
   def signup_form
     
   end
-
+  def checkout
+    
+  end
 end
