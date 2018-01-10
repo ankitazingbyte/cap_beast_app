@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180109131408) do
+ActiveRecord::Schema.define(version: 20180110070221) do
 
   create_table "add_texts", force: :cascade do |t|
     t.text "text"
@@ -210,6 +210,13 @@ ActiveRecord::Schema.define(version: 20180109131408) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_status_id"], name: "index_orders_on_order_status_id"
+  end
+
+  create_table "shippings", force: :cascade do |t|
+    t.string "standard"
+    t.string "express"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "upload_logos", force: :cascade do |t|

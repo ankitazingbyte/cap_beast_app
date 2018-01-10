@@ -62,8 +62,18 @@
     padding: 70px 15px;
     font-size: 32px;
     font-weight: bold;
-    }
-    input[type="text"], input[type="search"], input[type="tel"] {
+}
+ .checkout{
+ height:35px;
+ width: 153px;
+ }
+    
+
+.navbar-brand>img {
+    display: block;
+    margin: -59px 11px 4px -2px;
+}
+.myinput {
     -webkit-appearance: none;
     -webkit-border-radius: 0;
     box-shadow: none !important;
@@ -76,15 +86,8 @@
     margin-top: 22px;
     margin-bottom: 144px;
     height: 170px;
-    width: 400px;
-
- 
+    width: 400px; 
 }
-.navbar-brand>img {
-    display: block;
-    margin: -59px 11px 4px -2px;
-}
-
 
 
 
@@ -98,3 +101,6 @@ div#editor {
 #edit {
   display: inline-block;
 }
+
+
+

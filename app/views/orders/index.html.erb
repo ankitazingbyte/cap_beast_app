@@ -1,33 +1,49 @@
-<main>
-  <div class="container-fluid">
-    <div class="cart-section">
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3 text-center">
+    <h2>CHECKOUT</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+
+      <ul class="nav nav-pills  nav-justified">
+      <li class="btn-checkout">
+      <a href="/checkout/address" class="btn btn-default btn-checkout">Address</a>
+      </li>
+      <li class="">
+      <a href="/checkout/delivery" class="btn btn-default btn-checkout">Shipping Method</a>
+      </li>
+      <li class="btn-checkout">
+      <a href="#" class="btn btn-default">Payment &amp; Confirm</a>
+      </li>
+      </ul><br />
+      <h4>Pay With</h4>
+      <hr>
       <div class="row">
-        <div class="col-sm-8 col-md-9">
-          <h3>Custom Products</h3>
+        <div class="col-md-6">
+          <h4 style="display: inline">Credit Card</h4>
+          <%= render 'charges/new' %>
+        </div>
+        <div class="col-md-6">
+          <h4 style="display: inline">Paypal Account</h4>
+
+          <a href= "https://www.paypal.com/webscr?cmd=_express-checkout&token=EC-4KR9929436625521H&useraction=commit"><%= image_tag 'paypal.png', class: "checkout" %></a>
+         </div>
+      </div>
+      <div class="col-sm-8 col-md-9">
+          <h3>ORDER SUMMERY</h3>
           <table class="cart-table table">
             <thead>
               <tr>
                 <th class="col-photo">ITEM</th>
                 <th class="col-name"></th>
-                <th class="col-unit-price">UNIT PRICE</th>
+                <th class="col-unit-price">UNIT PRICE</th><br>
                 <th class="col-qty">QTY</th>
-                <th class="col-fee">DIGITIZATION <br> FEE</th>
                 <th class="col-price">Total</th>
                 <th class="col-actions"></th>
               </tr>
             </thead>
-            <tfoot>
-              <tr>
-                <td colspan="6">
-                  <dl class="summary">
-                    <dt>Subtotal</dt>
-                      <dd>$140.50</dd>
-                    <dt><strong>Order Total</strong></dt>
-                      <dd><strong>$140.50</strong></dd>
-                  </dl>
-                </td>
-              </tr>
-            </tfoot>
             <tbody>
               <% @orders.each do |order| %>
                     <% order.order_items.each do |item|%>
@@ -48,11 +64,6 @@
                       <td class="col-qty">
                       <%= item.quantity%>
                       </td>
-                      <td class="col-fee">
-                      <strong class="price">
-                      $10.00
-                      </strong>
-                      </td>
                       <td class="col-price">
                       <%= item.total_price%>
                       </td>
@@ -68,61 +79,32 @@
             </tbody>
           </table>
         </div>
-        <div class="col-sm-4 col-md-3">
-          <div class="widget-block">
-            <strong class="title">ORDER SUMMARY</strong>
-              <dl class="summary">
-                <dt>Subtotal</dt>
-                  <dd>$140.50</dd>
-                <dt>Shipping total: </dt>
-                  <dd><strong>-</strong></dd>
-                <dt>Taxes: </dt>
-                  <dd><strong>-</strong></dd>
-                <dt><strong>Order Total</strong></dt>
-                  <dd><strong>$140.50</strong></dd>
-              </dl>
-                <%= link_to 'CHECKOUT NOW', home_checkout_path, class: "btn btn-danger" %>
-            <div class="link">
-                <%= link_to'Continue Shopping', home_index_path %>
-            </div>
-          </div>
-          <div id="alert-pop">
-            <div class="modal fade" id="cart_delete_warning" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-              <div class="modal-dialog modal-md">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <br>
-                      <h4 class="text-center">Are you sure you want to remove this item from your cart?</h4>
-                  </div>
-                  <div class="modal-body">
-                    <div class="row">
-                      <div class="col-sm-12 text-center">
-                        <form accept-charset="UTF-8" action="/orders/CB13881788/remove_line_item" method="post"><div style="display:none"><!-- <input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="delete" /><input name="authenticity_token" type="hidden" value="sKq6pXGLqUMwvjqqOnK0DEcF3xU4fDN0M4Y6hJv44e8=" /> --></div>
-                        <input id="line_item" name="line_item" type="hidden" />
-                        <br>
-                        <input class="ok btn btn-danger delete-item-from-cart" name="commit" type="submit" value="OK" />
-                        <button class="btn btn-default" data-dismiss="modal" value="Cancel">Cancel</button>
-                        <br>
-                        <br>
-                        </form> 
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="widget-block">
-            <strong class="title">APPLY DISCOUNT</strong>
-              <!-- <form accept-charset="UTF-8" action="/cart" class="discount-form" id="update-cart" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="patch" /><input name="authenticity_token" type="hidden" value="sKq6pXGLqUMwvjqqOnK0DEcF3xU4fDN0M4Y6hJv44e8=" /></div>
-                <div class="form-group">
-                  <input type="text" name="order[coupon_code]" class="form-control" placeholder="code">
-                </div>
-                <input type="submit" value="Apply Coupon" class="btn btn-default">
-              </form>  -->
-          </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+      <div class="widget-block">
+        <strong class="title">ORDER SUMMARY</strong>
+        <dl class="summary">
+        <dt>Subtotal</dt>
+        <dd>$74.00</dd>
+        <dt>Shipping total: </dt>
+        <dd>$14.00</dd>
+        <dt>Taxes: </dt>
+        <dd><strong>-</strong></dd>
+        <dt><strong>Order Total</strong></dt>
+        <dd><strong>$88.00</strong></dd>
+        </dl>
+      </div>
+      <div class="widget-block">
+        <strong class="title">APPLY DISCOUNT</strong>
+        <form accept-charset="UTF-8" action="/orders/CB36121007/apply_coupon" class="discount-form" id="update-cart" method="post"><div style="display:none"><input name="utf8" type="hidden" value="&#x2713;" /><input name="_method" type="hidden" value="patch" /><input name="authenticity_token" type="hidden" value="YFYHhbtGQiROZYJwZklrSt/CV9WHW89pQjY459FOnJY=" /></div>
+        <div class="form-group">
+        <input type="text" name="order[coupon_code]" class="form-control" placeholder="code">
+        <input type="hidden" name="order[state]" value="payment" class="form-control">
         </div>
+        <input type="submit" value="Apply Coupon" class="btn btn-default">
+        </form> 
       </div>
     </div>
   </div>
-</main>
+  <%= link_to "Shopping Continue", custom_snapbacks_path, class: "btn btn-link", class: "btn btn-danger" %>
+</div><br />

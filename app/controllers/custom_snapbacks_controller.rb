@@ -6,13 +6,13 @@ class CustomSnapbacksController < ApplicationController
   # GET /custom_snapbacks.json
   def index
     @custom_snapbacks = CustomSnapback.all
-    # @order_item = current_order.order_items.new
+    @order_item = current_order.order_items.new
   end
 
   # GET /custom_snapbacks/1
   # GET /custom_snapbacks/1.json
   def show
-    # @order_item = current_order.order_items.new
+     @order_item = current_order.order_items.new
     @add_texts = AddText.all
     @upload_logos = UploadLogo.all
      # @add_text = AddText.find(params[:id])
