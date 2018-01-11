@@ -12,12 +12,6 @@
 
 ActiveRecord::Schema.define(version: 20180111131042) do
 
-  create_table "add_texts", force: :cascade do |t|
-    t.text "text"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "addresses", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -157,7 +151,6 @@ ActiveRecord::Schema.define(version: 20180111131042) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.text "text"
     t.string "product_detail"
   end
 
