@@ -1,20 +1,25 @@
 class CustomBeaniesController < ApplicationController
-  before_action :set_custom_beany, only: [:show, :edit, :update, :destroy]
+  skip_before_action :verify_authenticity_token
+  before_action :set_custom_beanie, only: [:show, :edit, :update, :destroy]
 
   # GET /custom_beanies
   # GET /custom_beanies.json
   def index
     @custom_beanies = CustomBeanie.all
+    @order_item = current_order.order_items.new
   end
 
   # GET /custom_beanies/1
   # GET /custom_beanies/1.json
   def show
+    @order_item = current_order.order_items.new
+    @add_texts = AddText.all
+    @upload_logos = UploadLogo.all
   end
 
   # GET /custom_beanies/new
   def new
-    @custom_beany = CustomBeanie.new
+    @custom_beanie = CustomBeanie.new
   end
 
   # GET /custom_beanies/1/edit
@@ -24,15 +29,15 @@ class CustomBeaniesController < ApplicationController
   # POST /custom_beanies
   # POST /custom_beanies.json
   def create
-    @custom_beany = CustomBeanie.new(custom_beany_params)
+    @custom_beanie = CustomBeanie.new(custom_beanie_params)
 
     respond_to do |format|
-      if @custom_beany.save
-        format.html { redirect_to @custom_beany, notice: 'Custom beanie was successfully created.' }
-        format.json { render :show, status: :created, location: @custom_beany }
+      if @custom_beanie.save
+        format.html { redirect_to @custom_beanie, notice: 'Custom beanie was successfully created.' }
+        format.json { render :show, status: :created, location: @custom_beanie }
       else
         format.html { render :new }
-        format.json { render json: @custom_beany.errors, status: :unprocessable_entity }
+        format.json { render json: @custom_beanie.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -41,12 +46,12 @@ class CustomBeaniesController < ApplicationController
   # PATCH/PUT /custom_beanies/1.json
   def update
     respond_to do |format|
-      if @custom_beany.update(custom_beany_params)
+      if @custom_beanie.update(custom_beanie_params)
         format.html { redirect_to @custom_beany, notice: 'Custom beanie was successfully updated.' }
-        format.json { render :show, status: :ok, location: @custom_beany }
+        format.json { render :show, status: :ok, location: @custom_beanie }
       else
         format.html { render :edit }
-        format.json { render json: @custom_beany.errors, status: :unprocessable_entity }
+        format.json { render json: @custom_beanie.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -54,7 +59,7 @@ class CustomBeaniesController < ApplicationController
   # DELETE /custom_beanies/1
   # DELETE /custom_beanies/1.json
   def destroy
-    @custom_beany.destroy
+    @custom_beanie.destroy
     respond_to do |format|
       format.html { redirect_to custom_beanies_url, notice: 'Custom beanie was successfully destroyed.' }
       format.json { head :no_content }
@@ -63,12 +68,12 @@ class CustomBeaniesController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_custom_beany
-      @custom_beany = CustomBeanie.find(params[:id])
+    def set_custom_beanie
+      @custom_beanie = CustomBeanie.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def custom_beany_params
-      params.require(:custom_beany).permit(:title, :logo, :image, :back_image, :left_image, :right_image, :price)
+    def custom_beanie_params
+      params.require(:custom_beanie).permit(:title, :logo, :image, :back_image, :left_image, :right_image, :price, :product_detail, :order_id, :cart_id, :category_id, :quantity, :text)
     end
 end

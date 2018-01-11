@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180110070221) do
+ActiveRecord::Schema.define(version: 20180111131042) do
 
   create_table "add_texts", force: :cascade do |t|
     t.text "text"
@@ -32,6 +32,12 @@ ActiveRecord::Schema.define(version: 20180110070221) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "brands", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "custom_athletic_hats", force: :cascade do |t|
     t.string "title"
     t.string "logo"
@@ -42,6 +48,7 @@ ActiveRecord::Schema.define(version: 20180110070221) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "product_detail"
   end
 
   create_table "custom_beanies", force: :cascade do |t|
@@ -54,6 +61,7 @@ ActiveRecord::Schema.define(version: 20180110070221) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "product_detail"
   end
 
   create_table "custom_bucket_hats", force: :cascade do |t|
@@ -66,6 +74,7 @@ ActiveRecord::Schema.define(version: 20180110070221) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "product_detail"
   end
 
   create_table "custom_camo_hats", force: :cascade do |t|
@@ -78,6 +87,7 @@ ActiveRecord::Schema.define(version: 20180110070221) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "product_detail"
   end
 
   create_table "custom_fitted_hats", force: :cascade do |t|
@@ -90,6 +100,7 @@ ActiveRecord::Schema.define(version: 20180110070221) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "product_detail"
   end
 
   create_table "custom_golf_hats", force: :cascade do |t|
@@ -102,6 +113,7 @@ ActiveRecord::Schema.define(version: 20180110070221) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "product_detail"
   end
 
   create_table "custom_military_hats", force: :cascade do |t|
@@ -114,6 +126,7 @@ ActiveRecord::Schema.define(version: 20180110070221) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "product_detail"
   end
 
   create_table "custom_panel_hats", force: :cascade do |t|
@@ -126,6 +139,12 @@ ActiveRecord::Schema.define(version: 20180110070221) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "product_detail"
+  end
+
+  create_table "custom_snapback_brands", force: :cascade do |t|
+    t.integer "custom_snapback_id"
+    t.integer "brand_id"
   end
 
   create_table "custom_snapbacks", force: :cascade do |t|
@@ -139,6 +158,7 @@ ActiveRecord::Schema.define(version: 20180110070221) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.text "text"
+    t.string "product_detail"
   end
 
   create_table "custom_strapback_hats", force: :cascade do |t|
@@ -151,6 +171,7 @@ ActiveRecord::Schema.define(version: 20180110070221) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "product_detail"
   end
 
   create_table "custom_trucker_hats", force: :cascade do |t|
@@ -163,6 +184,7 @@ ActiveRecord::Schema.define(version: 20180110070221) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "product_detail"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -210,6 +232,13 @@ ActiveRecord::Schema.define(version: 20180110070221) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["order_status_id"], name: "index_orders_on_order_status_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.integer "survey_id"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "shippings", force: :cascade do |t|

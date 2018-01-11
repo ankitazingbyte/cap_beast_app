@@ -18,27 +18,27 @@
 
   <div class="field">
     <%= form.label :logo %>
-    <%= form.text_field :logo, id: :custom_golf_hat_logo %>
+    <%= form.file_field :logo, id: :custom_golf_hat_logo %>
   </div>
 
   <div class="field">
     <%= form.label :image %>
-    <%= form.text_field :image, id: :custom_golf_hat_image %>
+    <%= form.file_field :image, id: :custom_golf_hat_image %>
   </div>
 
   <div class="field">
     <%= form.label :back_image %>
-    <%= form.text_field :back_image, id: :custom_golf_hat_back_image %>
+    <%= form.file_field :back_image, id: :custom_golf_hat_back_image %>
   </div>
 
   <div class="field">
     <%= form.label :left_image %>
-    <%= form.text_field :left_image, id: :custom_golf_hat_left_image %>
+    <%= form.file_field :left_image, id: :custom_golf_hat_left_image %>
   </div>
 
   <div class="field">
     <%= form.label :right_image %>
-    <%= form.text_field :right_image, id: :custom_golf_hat_right_image %>
+    <%= form.file_field :right_image, id: :custom_golf_hat_right_image %>
   </div>
 
   <div class="field">
@@ -46,6 +46,11 @@
     <%= form.text_field :price, id: :custom_golf_hat_price %>
   </div>
 
+  <div class="field">
+    <%= form.label :product_detail %>
+    <%= form.text_field :product_detail, id: :custom_golf_hat_product_detail %>
+  </div>
+  
   <div class="actions">
     <%= form.submit %>
   </div>

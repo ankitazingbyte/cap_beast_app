@@ -1,51 +1,44 @@
-<%= form_with(model: custom_beany, local: true) do |form| %>
-  <% if custom_beany.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(custom_beany.errors.count, "error") %> prohibited this custom_beany from being saved:</h2>
-
-      <ul>
-      <% custom_beany.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_for @custom_beanie do |form| %>
+ 
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title, id: :custom_beany_title %>
+    <%= form.text_field :title, id: :custom_beanie_title %>
   </div>
 
   <div class="field">
     <%= form.label :logo %>
-    <%= form.text_field :logo, id: :custom_beany_logo %>
+    <%= form.file_field :logo, id: :custom_beanie_logo %>
   </div>
 
   <div class="field">
     <%= form.label :image %>
-    <%= form.text_field :image, id: :custom_beany_image %>
+    <%= form.file_field :image, id: :custom_beanie_image %>
   </div>
 
   <div class="field">
     <%= form.label :back_image %>
-    <%= form.text_field :back_image, id: :custom_beany_back_image %>
+    <%= form.file_field :back_image, id: :custom_beanie_back_image %>
   </div>
 
   <div class="field">
     <%= form.label :left_image %>
-    <%= form.text_field :left_image, id: :custom_beany_left_image %>
+    <%= form.file_field :left_image, id: :custom_beanie_left_image %>
   </div>
 
   <div class="field">
     <%= form.label :right_image %>
-    <%= form.text_field :right_image, id: :custom_beany_right_image %>
+    <%= form.file_field :right_image, id: :custom_beanie_right_image %>
   </div>
 
   <div class="field">
     <%= form.label :price %>
-    <%= form.text_field :price, id: :custom_beany_price %>
+    <%= form.text_field :price, id: :custom_beanie_price %>
   </div>
-
+  
+  <div class="field">
+    <%= form.label :product_detail %>
+    <%= form.text_field :product_detail, id: :custom_beanie_product_detail %>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>

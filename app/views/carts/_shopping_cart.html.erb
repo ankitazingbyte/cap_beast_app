@@ -16,5 +16,6 @@
 <% else %>
   <% @order_items.each do |order_item| %>
     <%= render 'carts/cart_row', custom_snapbacks: order_item.custom_snapback, order_item: order_item, show_total: true %>
+    <%#= render 'carts/cart_strapback', custom_strapback_hats: order_item.custom_strapback_hat, order_item: order_item, show_total: true %>
   <% end %>
 <% end %>

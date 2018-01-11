@@ -5,11 +5,15 @@ class CustomCamoHatsController < ApplicationController
   # GET /custom_camo_hats.json
   def index
     @custom_camo_hats = CustomCamoHat.all
+    @order_item = current_order.order_items.new
   end
 
   # GET /custom_camo_hats/1
   # GET /custom_camo_hats/1.json
   def show
+     @order_item = current_order.order_items.new
+    @add_texts = AddText.all
+    @upload_logos = UploadLogo.all
   end
 
   # GET /custom_camo_hats/new
@@ -69,6 +73,6 @@ class CustomCamoHatsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def custom_camo_hat_params
-      params.require(:custom_camo_hat).permit(:title, :logo, :image, :back_image, :left_image, :right_image, :price)
+      params.require(:custom_camo_hat).permit(:title, :logo, :image, :back_image, :left_image, :right_image, :price, :product_detail, :order_id, :cart_id, :category_id, :quantity, :text)
     end
 end

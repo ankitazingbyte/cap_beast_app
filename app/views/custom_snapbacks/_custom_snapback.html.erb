@@ -1,0 +1,39 @@
+<div class="row">
+  <div class= "col-xs-8 col-xs-offset-2">
+    <div class= "well well-lg">
+      <% obj.each do |custom_snapback| %>
+        <div class="row">
+          <div class="col-xs-8 col-xs-offset-2">
+            <div class="well well-lg">
+              <div class= "custom_snapback-title">
+                <%= link_to custom_snapback.title, custom_snapback_path(custom_snapback) %>
+              </div>
+
+              <div class= "custom_snapback-body">
+                  <%#= truncate(custom_snapback.description, length: 100) %>
+                  <div class= "custom_snapback-meta-details">
+                    <small>Created by: <%#= custom_snapback.user.username if custom_snapback.user %>,
+                      <%#= time_ago_in_words(custom_snapback.created_at) %> ago,
+                      last updated: <%#= time_ago_in_words(custom_snapback.updated_at) %>ago
+                      
+                    </small>
+                  </div>
+              </div>
+              <% if custom_snapback.brands.any? %>
+                  <p>Brands: <%= render custom_snapback.brands %></p>
+              <% end %>
+              <%# if logged_in? && (current_user == custom_snapback.user || current_user.admin?) %>
+                <!-- <div class="custom_snapback-action"> -->
+                    <%#= link_to 'Edit this custom_snapback', edit_article_path(custom_snapback), class: "btn btn-xs btn-primary" %> 
+                    <%#= link_to 'delete this custom_snapback',custom_snapback_path(custom_snapback), method: :delete, data: {conforim: "Are you sure u want to delete this custom_snapback?"}, class: "btn btn-xs btn-danger" %>
+                <!-- </div> -->
+              <% #end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<br>

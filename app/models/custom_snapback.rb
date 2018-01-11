@@ -6,4 +6,6 @@ class CustomSnapback < ApplicationRecord
 	mount_uploader :logo, LogoUploader
 	belongs_to :order, optional: true
 	has_many :order_items
+	has_many :custom_snapback_brands
+	has_many :brands, through: :custom_snapback_brands
 end

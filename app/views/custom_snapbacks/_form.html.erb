@@ -43,6 +43,19 @@
     <%= form.text_field :price, id: :custom_snapback_price %>
   </div>
 
+  <div class="field">
+    <%= form.label :product_detail %>
+    <%= form.text_field :product_detail, id: :custom_snapback_product_detail %>
+  </div>
+  <div class="form-group">
+    <div class="row">
+      <div class="col-sm-offset-2 col-sm-8">
+        <%= form.collection_check_boxes :brand_ids, Brand.all, :id, :name do |cb| %>
+            <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+        <% end %>
+      </div>
+    </div>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>

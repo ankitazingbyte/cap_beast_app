@@ -1,15 +1,20 @@
 class CustomTruckerHatsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   before_action :set_custom_trucker_hat, only: [:show, :edit, :update, :destroy]
 
   # GET /custom_trucker_hats
   # GET /custom_trucker_hats.json
   def index
     @custom_trucker_hats = CustomTruckerHat.all
+    @order_item = current_order.order_items.new
   end
 
   # GET /custom_trucker_hats/1
   # GET /custom_trucker_hats/1.json
   def show
+    @order_item = current_order.order_items.new
+    @add_texts = AddText.all
+    @upload_logos = UploadLogo.all
   end
 
   # GET /custom_trucker_hats/new
@@ -69,6 +74,6 @@ class CustomTruckerHatsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def custom_trucker_hat_params
-      params.require(:custom_trucker_hat).permit(:title, :logo, :image, :back_image, :left_image, :right_image, :price)
+      params.require(:custom_trucker_hat).permit(:title, :logo, :image, :back_image, :left_image, :right_image, :price, :product_detail, :order_id, :cart_id, :category_id, :quantity, :text)
     end
 end

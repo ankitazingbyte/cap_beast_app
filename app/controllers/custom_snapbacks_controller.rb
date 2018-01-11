@@ -75,6 +75,6 @@ class CustomSnapbacksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def custom_snapback_params
-      params.require(:custom_snapback).permit(:image, :logo, :title, :price, :right_image, :left_image, :back_image, :order_id, :cart_id, :category_id, :quantity, :text)
+      params.require(:custom_snapback).permit(:image, :logo, :title, :price, :right_image, :left_image, :back_image, :order_id, :cart_id, :category_id, :quantity, :text, :product_detail)
     end
 end

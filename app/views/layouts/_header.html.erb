@@ -38,35 +38,33 @@
 									<div class="container-fluid">
 										<div class="row">
 											<div class="col-sm-3 col-xs-5">
-												<div class="img-holder text-center">
-													<a href="#">
+												<div class="text-center">
 													<picture>
-													<!-- <img alt="custom hats" class="menu-image-holder" src="assets/spree/frontend/home/img-drop-01-7b266f9ad77779fc2e6f77287763ae1902934bd5d2e42815cdc6319853955b65.jpg" width="150" /> -->
+													<%= image_tag 'image4.jpg', class: "img-holder", id: "myholder" %>
 													</picture>
-													</a>
 												</div>
 											</div>
 											<div class="col-sm-3 col-xs-7">
 												<ul class="list-unstyled">
-												<li><%= link_to "Custom Snapbacks", custom_snapbacks_path %></li>
-												<li> <%= link_to "Custom Fitted Hats", custom_fitted_hats_path %></li>
-												<li><%= link_to "Custom Dad Hats", custom_strapback_hats_path %></li>
-												<li><%= link_to "Custom Camo Hats", custom_camo_hats_path %></li>
+												<li><%= link_to "Custom Snapbacks", custom_snapbacks_path, onmouseover: "mysnapbackFunction()" %></li>
+												<li> <%= link_to "Custom Fitted Hats", custom_fitted_hats_path, onmouseover: "myfittedFunction()" %></li>
+												<li><%= link_to "Custom Dad Hats", custom_strapback_hats_path, onmouseover: "mystrapFunction()" %></li>
+												<li><%= link_to "Custom Camo Hats", custom_camo_hats_path, onmouseover: "mycamoFunction()" %></li>
 												</ul>
 											</div>
 											<div class="col-sm-3 col-xs-7">
 											<ul class="list-unstyled">
-											<li><%= link_to "Custom Beanies", custom_beanies_path %></li>
-											<li><%= link_to "Custom 5 panel Hats", custom_panel_hats_path %></li>
-											<li><%= link_to "Custom Trucker Hats", custom_trucker_hats_path %></li>
-											<li><%= link_to "Custom Bucket Hats", custom_bucket_hats_path %></li>
+											<li><%= link_to "Custom Beanies", custom_beanies_path, onmouseover: "mybeanieFunction()" %></li>
+											<li><%= link_to "Custom 5 panel Hats", custom_panel_hats_path, onmouseover: "mypanelFunction()" %></li>
+											<li><%= link_to "Custom Trucker Hats", custom_trucker_hats_path, onmouseover: "mytruckerFunction()" %></li>
+											<li><%= link_to "Custom Bucket Hats", custom_bucket_hats_path, onmouseover: "mybucketFunction()" %></li>
 											</ul>
 											</div>
 											<div class="col-sm-3 col-xs-7">
 											<ul class="list-unstyled">
-											<li><%= link_to "Custom Athletic Hats", custom_athletic_hats_path %></li>
-											<li><%= link_to "Custom Golf Hats", custom_golf_hats_path %></li>
-											<li><%= link_to "Custom Military Hats", custom_military_hats_path %></li>
+											<li><%= link_to "Custom Athletic Hats", custom_athletic_hats_path, onmouseover: "myathleticFunction()" %></li>
+											<li><%= link_to "Custom Golf Hats", custom_golf_hats_path, onmouseover: "mygolfFunction()" %></li>
+											<li><%= link_to "Custom Military Hats", custom_military_hats_path, onmouseover: "mymilitaryFunction()" %></li>
 											</ul>
 											</div>
 										</div>
@@ -79,22 +77,22 @@
 								<div class="container-fluid">
 									<ul class="brands-list list-inline text-center">
 										<li>
-											<a class="menu-thumbail" href="brands/new-era.html"><!-- <img alt="New era 2x" src="../uploads.capbeast.com/spree/general_images/287504/product/new-era-2xaf97.png?1488226617" width="81" /> --></a>
+											<a class="menu-thumbail" href="brands/new-era.html"><%= image_tag "new-era-2x.png", width: "81" %></a>
 										</li>
 									 	<li>
-											<a class="menu-thumbail" href="brands/flexfit.html"><!-- <img alt="Flexfit 2x" src="../uploads.capbeast.com/spree/general_images/287505/product/flexfit-2x0137.png?1488226654" width="81" /> --></a>
+											<a class="menu-thumbail" href="brands/flexfit.html"><%= image_tag "flexfit-2x.png", width: "81" %></a>
 										</li>
 										<li>
-										<a class="menu-thumbail" href="brands/yupoong.html"><!-- <img alt="Yupoong 2x" src="../uploads.capbeast.com/spree/general_images/287506/product/yupoong-2xbc98.png?1488226682" width="81" /> --></a>
+										<a class="menu-thumbail" href="brands/yupoong.html"><%= image_tag "yupoong-2x.png", width: "81" %></a>
 										</li>
 										<li>
-										<a class="menu-thumbail" href="brands/nike.html"><!-- <img alt="Nike 2x" src="../uploads.capbeast.com/spree/general_images/287507/product/nike-2x3237.png?1488226717" width="81" /> --></a>
+										<a class="menu-thumbail" href="brands/nike.html"><%= image_tag "nike-2x.png", width: "81" %></a>
 										</li>
 										<li>
-										<a class="menu-thumbail" href="brands/capbeast-classics.html"><!-- <img alt="Classics 2x" src="../uploads.capbeast.com/spree/general_images/287508/product/classics-2xa555.png?1488226761" width="81" /> --></a>
+										<a class="menu-thumbail" href="brands/capbeast-classics.html"><%= image_tag "classics-2x.png", width: "81" %></a>
 										</li>
 										<li>
-										<a class="menu-thumbail" href="brands/oakley.html"><!-- <img alt="Oakley 2x" src="../uploads.capbeast.com/spree/general_images/287510/product/oakley-2x8e28.png?1488226784" width="81" /> --></a>
+										<a class="menu-thumbail" href="brands/oakley.html"><%= image_tag "oakley-2x.png", width: "81" %></a>
 										</li>
 									</ul>
 								</div>
