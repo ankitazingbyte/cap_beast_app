@@ -5,8 +5,13 @@ class CustomPanelHatsController < ApplicationController
   # GET /custom_panel_hats
   # GET /custom_panel_hats.json
   def index
-    @custom_panel_hats = CustomPanelHat.all
-    @order_item = current_order.order_items.new
+    if params[:brand].blank?
+      @custom_panel_hats = CustomPanelHat.all
+      @order_item = current_order.order_items.new
+    else
+      @brand_id =Brand.find_by(name: params[:brand]).id
+      @custom_panel_hats = CustomPanelHat.where(:brand_id => @brand_id)
+    end
   end
 
   # GET /custom_panel_hats/1
@@ -20,15 +25,18 @@ class CustomPanelHatsController < ApplicationController
   # GET /custom_panel_hats/new
   def new
     @custom_panel_hat = CustomPanelHat.new
+    @brands = Brand.all.map{|b| [b.name,b.id]}
   end
 
   # GET /custom_panel_hats/1/edit
   def edit
+    @brands = Brand.all.map{|b| [b.name,b.id]}
   end
 
   # POST /custom_panel_hats
   # POST /custom_panel_hats.json
   def create
+    @custom_panel_hat.brand_id = params[:brand_id]
     @custom_panel_hat = CustomPanelHat.new(custom_panel_hat_params)
 
     respond_to do |format|
@@ -45,6 +53,7 @@ class CustomPanelHatsController < ApplicationController
   # PATCH/PUT /custom_panel_hats/1
   # PATCH/PUT /custom_panel_hats/1.json
   def update
+    @custom_panel_hat.brand_id = params[:brand_id]
     respond_to do |format|
       if @custom_panel_hat.update(custom_panel_hat_params)
         format.html { redirect_to @custom_panel_hat, notice: 'Custom panel hat was successfully updated.' }

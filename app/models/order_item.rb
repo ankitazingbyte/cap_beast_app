@@ -16,22 +16,21 @@ class OrderItem < ApplicationRecord
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validate :order_present
   validate :custom_snapback_present
-  validate :custom_strapback_hat_present
-  validate :custom_trucker_hat_present
-  validate :custom_panel_hat_present
-  validate :custom_military_hat_present
-  validate :custom_golf_hat_present
-  validate :custom_fitted_hat_present
-  validate :custom_camo_hat_present
-  validate :custom_bucket_hat_present
-  validate :custom_beanie_present
-  validate :custom_athletic_hat_present
+  # validate :custom_strapback_hat_present
+  # validate :custom_trucker_hat_present
+  # validate :custom_panel_hat_present
+  # validate :custom_military_hat_present
+  # validate :custom_golf_hat_present
+  # validate :custom_fitted_hat_present
+  # validate :custom_camo_hat_present
+  # validate :custom_bucket_hat_present
+  # validate :custom_beanie_present
+  # validate :custom_athletic_hat_present
 
   before_save :finalize
 
- def self.library
- end
-  def unit_price
+
+    def unit_price
       if persisted?
         self[:unit_price]
       else

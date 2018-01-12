@@ -7,11 +7,7 @@
             <div id="fpd" class="fpd-container fpd-bottom-actions-centered fpd-views-outside" style="margin:auto">
               <input id="ga_price" name="ga_price" type="hidden" value="28.0" />
               <%= image_tag @custom_snapback.image.url, class: "show_img", id: "myclicked" %>
-              <img id="output" class="centered" class="slim"
-     data-ratio="16:9"
-     data-service="async.php"
-     data-fetcher="fetch.php"
-     data-size="640,640" />
+              <img id="output" class="centered"/>
               <div id="editor">
                 <div class="centered myText" id='edit'>
    
@@ -103,6 +99,7 @@
                 </div>
               </div>
             </div>
+            <!-- END -->
             <div class="sizes_div">
               <div class="clearfix">
                   <label class="qty-field">Total Quantity:<p id="qty"></p></label>
@@ -137,12 +134,12 @@
             <h4 class="text-left top-mar">Customize Now!</h4>
             <div class="clearfix">
               <div class="row">
-                <div class-md-2>
-                <a data-toggle="modal" href="#add-text-Modal" class="btn btn-default add-text-btn">Add Text</a>
-              </div>
-              <div class-md-8>
-                <a data-toggle="modal" href="#uploadImagePopup" class="btn btn-default add-image-button">Upload Image</a>
-              </div>
+                <div class-md-6>
+                 <a data-toggle="modal" href="#add-text-Modal" class="btn btn-default add-text-btn">Add Text</a>
+                </div>
+                <div class-md-6>
+                  <a data-toggle="modal" href="#uploadImagePopup" class="btn btn-default add-image-button">Upload Image</a>
+                </div>
               </div>
           <!-- add_text_modal -->
               <div class="product-details modal" id="add-text-Modal">
@@ -494,7 +491,7 @@
   </script>
 <!-- END -->
 
-<!-- UPLOAD LOGO JAVASCRIPT-->
+<!-- UPLOAD LOGO JAVASCRIPT -->
   <script>
     var loadFile = function(event) {
       var output = document.getElementById('output');
@@ -533,6 +530,7 @@
             });
         });
 </script>
+<!-- END -->
 <!-- ADD TO CARD POPUP ERROR -->
   <script>
   function whichElement(e) {

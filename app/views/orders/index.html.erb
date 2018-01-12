@@ -68,9 +68,7 @@
                       <%= item.total_price%>
                       </td>
                       <td class="col-actions">
-                      <h4 style align="right"><%= link_to "X",order_path(order),
-                                        method: :delete, class: "delete_line_item", 
-                                        data: { confirm: 'Are you sure?' } %></h4>
+                      <h4 style align="right"><%= link_to "X",order_path(order), method: :delete, class: "delete_line_item", data: { confirm: 'Are you sure?' } %></h4>
                       <a href="/custom_snapbacks/<%= item.custom_snapback.id %>" class= "icon-edit"></a>
                       </td>
                       </tr>

@@ -51,6 +51,12 @@
     <%= form.text_field :product_detail, id: :custom_bucket_hat_product_detail %>
   </div>
   
+  <div class="form-group">
+    <div class="row">
+      <%= select_tag(:brand_id, options_for_select(@brands), :prompt => "select add brand") %>
+    </div>
+  </div>
+  
   <div class="actions">
     <%= form.submit %>
   </div>

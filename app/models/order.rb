@@ -14,7 +14,7 @@ class Order < ApplicationRecord
   has_many :custom_beanies
   has_many :custom_athletic_hats
 
- before_create :set_order_status
+  before_create :set_order_status
   before_save :update_subtotal
   
   def subtotal

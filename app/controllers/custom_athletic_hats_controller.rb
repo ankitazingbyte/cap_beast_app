@@ -5,14 +5,19 @@ class CustomAthleticHatsController < ApplicationController
   # GET /custom_athletic_hats
   # GET /custom_athletic_hats.json
   def index
-    @custom_athletic_hats = CustomAthleticHat.all
-    @order_item = current_order.order_items.new
+    if params[:brand].blank?
+      @custom_athletic_hats = CustomAthleticHat.all
+      @order_item = current_order.order_items.new
+    else
+      @brand_id =Brand.find_by(name: params[:brand]).id
+      @custom_athletic_hats = CustomAthleticHat.where(:brand_id => @brand_id)
+    end
   end
 
   # GET /custom_athletic_hats/1
   # GET /custom_athletic_hats/1.json
   def show
-     @order_item = current_order.order_items.new
+    @order_item = current_order.order_items.new
     @add_texts = AddText.all
     @upload_logos = UploadLogo.all
   end
@@ -20,16 +25,19 @@ class CustomAthleticHatsController < ApplicationController
   # GET /custom_athletic_hats/new
   def new
     @custom_athletic_hat = CustomAthleticHat.new
+    @brands = Brand.all.map{|b| [b.name,b.id]}
   end
 
   # GET /custom_athletic_hats/1/edit
   def edit
+    @brands = Brand.all.map{|b| [b.name,b.id]}
   end
 
   # POST /custom_athletic_hats
   # POST /custom_athletic_hats.json
   def create
     @custom_athletic_hat = CustomAthleticHat.new(custom_athletic_hat_params)
+    @custom_athletic_hat.brand_id = params[:brand_id]
 
     respond_to do |format|
       if @custom_athletic_hat.save
@@ -45,6 +53,7 @@ class CustomAthleticHatsController < ApplicationController
   # PATCH/PUT /custom_athletic_hats/1
   # PATCH/PUT /custom_athletic_hats/1.json
   def update
+    @custom_athletic_hat.brand_id = params[:brand_id]
     respond_to do |format|
       if @custom_athletic_hat.update(custom_athletic_hat_params)
         format.html { redirect_to @custom_athletic_hat, notice: 'Custom athletic hat was successfully updated.' }

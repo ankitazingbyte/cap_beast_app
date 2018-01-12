@@ -5,8 +5,13 @@ class CustomTruckerHatsController < ApplicationController
   # GET /custom_trucker_hats
   # GET /custom_trucker_hats.json
   def index
+    if params[:brand].blank?
     @custom_trucker_hats = CustomTruckerHat.all
     @order_item = current_order.order_items.new
+    else
+      @brand_id =Brand.find_by(name: params[:brand]).id
+      @custom_trucker_hats = CustomTruckerHat.where(:brand_id => @brand_id)
+    end
   end
 
   # GET /custom_trucker_hats/1
@@ -20,15 +25,18 @@ class CustomTruckerHatsController < ApplicationController
   # GET /custom_trucker_hats/new
   def new
     @custom_trucker_hat = CustomTruckerHat.new
+    @brands = Brand.all.map{|b| [b.name,b.id]}
   end
 
   # GET /custom_trucker_hats/1/edit
   def edit
+    @brands = Brand.all.map{|b| [b.name,b.id]}
   end
 
   # POST /custom_trucker_hats
   # POST /custom_trucker_hats.json
   def create
+    @custom_trucker_hat.brand_id = params[:brand_id]
     @custom_trucker_hat = CustomTruckerHat.new(custom_trucker_hat_params)
 
     respond_to do |format|
@@ -45,6 +53,7 @@ class CustomTruckerHatsController < ApplicationController
   # PATCH/PUT /custom_trucker_hats/1
   # PATCH/PUT /custom_trucker_hats/1.json
   def update
+    @custom_trucker_hat.brand_id = params[:brand_id]
     respond_to do |format|
       if @custom_trucker_hat.update(custom_trucker_hat_params)
         format.html { redirect_to @custom_trucker_hat, notice: 'Custom trucker hat was successfully updated.' }

@@ -4,8 +4,13 @@ class CustomCamoHatsController < ApplicationController
   # GET /custom_camo_hats
   # GET /custom_camo_hats.json
   def index
-    @custom_camo_hats = CustomCamoHat.all
-    @order_item = current_order.order_items.new
+    if params[:brand].blank?
+      @custom_camo_hats = CustomCamoHat.all
+      @order_item = current_order.order_items.new
+    else
+      @brand_id =Brand.find_by(name: params[:brand]).id
+      @custom_camo_hats = CustomCamoHat.where(:brand_id => @brand_id)
+    end
   end
 
   # GET /custom_camo_hats/1
@@ -19,16 +24,19 @@ class CustomCamoHatsController < ApplicationController
   # GET /custom_camo_hats/new
   def new
     @custom_camo_hat = CustomCamoHat.new
+    @brands = Brand.all.map{|b| [b.name,b.id]}
   end
 
   # GET /custom_camo_hats/1/edit
   def edit
+    @brands = Brand.all.map{|b| [b.name,b.id]}
   end
 
   # POST /custom_camo_hats
   # POST /custom_camo_hats.json
   def create
     @custom_camo_hat = CustomCamoHat.new(custom_camo_hat_params)
+    @custom_camo_hat.brand_id = params[:brand_id]
 
     respond_to do |format|
       if @custom_camo_hat.save
@@ -44,6 +52,7 @@ class CustomCamoHatsController < ApplicationController
   # PATCH/PUT /custom_camo_hats/1
   # PATCH/PUT /custom_camo_hats/1.json
   def update
+    @custom_camo_hat.brand_id = params[:brand_id]
     respond_to do |format|
       if @custom_camo_hat.update(custom_camo_hat_params)
         format.html { redirect_to @custom_camo_hat, notice: 'Custom camo hat was successfully updated.' }

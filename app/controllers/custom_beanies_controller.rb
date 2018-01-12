@@ -5,8 +5,13 @@ class CustomBeaniesController < ApplicationController
   # GET /custom_beanies
   # GET /custom_beanies.json
   def index
-    @custom_beanies = CustomBeanie.all
-    @order_item = current_order.order_items.new
+    if params[:brand].blank?
+      @custom_beanies = CustomBeanie.all
+      @order_item = current_order.order_items.new
+    else
+      @brand_id =Brand.find_by(name: params[:brand]).id
+      @custom_beanies = CustomBeanie.where(:brand_id => @brand_id)
+    end
   end
 
   # GET /custom_beanies/1
@@ -20,17 +25,19 @@ class CustomBeaniesController < ApplicationController
   # GET /custom_beanies/new
   def new
     @custom_beanie = CustomBeanie.new
+    @brands = Brand.all.map{|b| [b.name,b.id]}
   end
 
   # GET /custom_beanies/1/edit
   def edit
+    @brands = Brand.all.map{|b| [b.name,b.id]}
   end
 
   # POST /custom_beanies
   # POST /custom_beanies.json
   def create
     @custom_beanie = CustomBeanie.new(custom_beanie_params)
-
+    @custom_beanie.brand_id = params[:brand_id]
     respond_to do |format|
       if @custom_beanie.save
         format.html { redirect_to @custom_beanie, notice: 'Custom beanie was successfully created.' }
@@ -45,9 +52,10 @@ class CustomBeaniesController < ApplicationController
   # PATCH/PUT /custom_beanies/1
   # PATCH/PUT /custom_beanies/1.json
   def update
+    @custom_beanie.brand_id = params[:brand_id]
     respond_to do |format|
       if @custom_beanie.update(custom_beanie_params)
-        format.html { redirect_to @custom_beany, notice: 'Custom beanie was successfully updated.' }
+        format.html { redirect_to @custom_beanie, notice: 'Custom beanie was successfully updated.' }
         format.json { render :show, status: :ok, location: @custom_beanie }
       else
         format.html { render :edit }

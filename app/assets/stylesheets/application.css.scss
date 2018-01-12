@@ -63,12 +63,12 @@
     font-size: 32px;
     font-weight: bold;
 }
- .checkout{
+
+.checkout{
  height:35px;
  width: 153px;
  }
-    
-
+   
 .navbar-brand>img {
     display: block;
     margin: -59px 11px 4px -2px;
@@ -94,8 +94,19 @@
     width: 400px; 
 }
 
+.list-inline {
+    padding-left: 0;
+    margin-left: -5px;
+    list-style: none;
+}
 
-
+.sort-list {
+    font: 1.2rem/1 "teko", Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    margin: -21px 23px 50px 43px;
+    letter-spacing: 3px;
+    text-align: center;
+}
 
 div#editor {
   width: 100%;
@@ -108,4 +119,34 @@ div#editor {
 }
 
 
+p, ol, ul, td {
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 28px;
+}
+.input {
+    width: 0px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+        margin: 0px 31px;
+}
 
+.input:focus {
+    width: 100%
+}
+
+.nav-li {
+    display: block;
+    color: #000;
+    padding: 4px 46px;
+        margin-right: 19px;
+}

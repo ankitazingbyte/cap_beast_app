@@ -1,57 +1,64 @@
-<%= form_with(model: custom_strapback_hat, local: true) do |form| %>
-  <% if custom_strapback_hat.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(custom_strapback_hat.errors.count, "error") %> prohibited this custom_strapback_hat from being saved:</h2>
+<center>  
+  <%= form_with(model: custom_strapback_hat, local: true) do |form| %>
+    <% if custom_strapback_hat.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(custom_strapback_hat.errors.count, "error") %> prohibited this custom_strapback_hat from being saved:</h2>
 
-      <ul>
-      <% custom_strapback_hat.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% custom_strapback_hat.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= form.label :title %>
+      <%= form.text_field :title, id: :custom_strapback_hat_title %>
+    </div>
+
+    <div class="field">
+      <%= form.label :logo %>
+      <%= form.file_field :logo, id: :custom_strapback_hat_logo %>
+    </div>
+
+    <div class="field">
+      <%= form.label :image %>
+      <%= form.file_field :image, id: :custom_strapback_hat_image %>
+    </div>
+
+    <div class="field">
+      <%= form.label :back_image %>
+      <%= form.file_field :back_image, id: :custom_strapback_hat_back_image %>
+    </div>
+
+    <div class="field">
+      <%= form.label :left_image %>
+      <%= form.file_field :left_image, id: :custom_strapback_hat_left_image %>
+    </div>
+
+    <div class="field">
+      <%= form.label :right_image %>
+      <%= form.file_field :right_image, id: :custom_strapback_hat_right_image %>
+    </div>
+
+    <div class="field">
+      <%= form.label :price %>
+      <%= form.text_field :price, id: :custom_strapback_hat_price %>
+    </div>
+
+    <div class="field">
+      <%= form.label :product_detail %>
+      <%= form.text_field :product_detail, id: :custom_strapback_hat_product_detail %>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <%= select_tag(:brand_id, options_for_select(@brands), :prompt => "select add brand") %>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= form.submit %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title, id: :custom_strapback_hat_title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :logo %>
-    <%= form.file_field :logo, id: :custom_strapback_hat_logo %>
-  </div>
-
-  <div class="field">
-    <%= form.label :image %>
-    <%= form.file_field :image, id: :custom_strapback_hat_image %>
-  </div>
-
-  <div class="field">
-    <%= form.label :back_image %>
-    <%= form.file_field :back_image, id: :custom_strapback_hat_back_image %>
-  </div>
-
-  <div class="field">
-    <%= form.label :left_image %>
-    <%= form.file_field :left_image, id: :custom_strapback_hat_left_image %>
-  </div>
-
-  <div class="field">
-    <%= form.label :right_image %>
-    <%= form.file_field :right_image, id: :custom_strapback_hat_right_image %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price, id: :custom_strapback_hat_price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :product_detail %>
-    <%= form.text_field :product_detail, id: :custom_strapback_hat_product_detail %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</center>

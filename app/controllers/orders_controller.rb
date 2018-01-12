@@ -1,12 +1,9 @@
 class OrdersController < ApplicationController
+
   	def index
-          @orders = Order.all
-          
+          @orders = Order.all        
     end
-    def show
-      @order = Order.find(params[:id])
-      
-    end
+    
     def new
         @order = Order.new
         @order = Order.new(:express_token => params[:token])
@@ -28,5 +25,5 @@ class OrdersController < ApplicationController
     private
       def order_params
              params.require(:order).permit(:subtotal, :total, :order_status_id)
-     end
+      end
 end

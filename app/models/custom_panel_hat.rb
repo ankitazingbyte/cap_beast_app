@@ -6,4 +6,5 @@ class CustomPanelHat < ApplicationRecord
 	mount_uploader :logo, LogoUploader
 	belongs_to :order, optional: true
 	has_many :order_items
+	belongs_to :brand
 end

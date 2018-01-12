@@ -4,8 +4,13 @@ class CustomStrapbackHatsController < ApplicationController
   # GET /custom_strapback_hats
   # GET /custom_strapback_hats.json
   def index
-    @custom_strapback_hats = CustomStrapbackHat.all
-    @order_item = current_order.order_items.new
+    if params[:brand].blank?
+      @custom_strapback_hats = CustomStrapbackHat.all
+      @order_item = current_order.order_items.new
+    else
+      @brand_id =Brand.find_by(name: params[:brand]).id
+      @custom_strapback_hats = CustomStrapbackHat.where(:brand_id => @brand_id)
+    end
   end
 
   # GET /custom_strapback_hats/1
@@ -19,17 +24,19 @@ class CustomStrapbackHatsController < ApplicationController
   # GET /custom_strapback_hats/new
   def new
     @custom_strapback_hat = CustomStrapbackHat.new
+    @brands = Brand.all.map{|b| [b.name,b.id]}
   end
 
   # GET /custom_strapback_hats/1/edit
   def edit
+    @brands = Brand.all.map{|b| [b.name,b.id]}
   end
 
   # POST /custom_strapback_hats
   # POST /custom_strapback_hats.json
   def create
     @custom_strapback_hat = CustomStrapbackHat.new(custom_strapback_hat_params)
-
+    @custom_snapback.brand_id = params[:brand_id]
     respond_to do |format|
       if @custom_strapback_hat.save
         format.html { redirect_to @custom_strapback_hat, notice: 'Custom strapback hat was successfully created.' }
@@ -44,6 +51,7 @@ class CustomStrapbackHatsController < ApplicationController
   # PATCH/PUT /custom_strapback_hats/1
   # PATCH/PUT /custom_strapback_hats/1.json
   def update
+    @custom_strapback_hat.brand_id = params[:brand_id]
     respond_to do |format|
       if @custom_strapback_hat.update(custom_strapback_hat_params)
         format.html { redirect_to @custom_strapback_hat, notice: 'Custom strapback hat was successfully updated.' }

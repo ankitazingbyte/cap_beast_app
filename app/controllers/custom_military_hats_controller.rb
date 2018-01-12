@@ -5,8 +5,13 @@ class CustomMilitaryHatsController < ApplicationController
   # GET /custom_military_hats
   # GET /custom_military_hats.json
   def index
-    @custom_military_hats = CustomMilitaryHat.all
-    @order_item = current_order.order_items.new
+    if params[:brand].blank?
+      @custom_military_hats = CustomMilitaryHat.all
+      @order_item = current_order.order_items.new
+    else
+      @brand_id =Brand.find_by(name: params[:brand]).id
+      @custom_military_hats = CustomMilitaryHat.where(:brand_id => @brand_id)
+    end
   end
 
   # GET /custom_military_hats/1
@@ -20,15 +25,18 @@ class CustomMilitaryHatsController < ApplicationController
   # GET /custom_military_hats/new
   def new
     @custom_military_hat = CustomMilitaryHat.new
+    @brands = Brand.all.map{|b| [b.name,b.id]}
   end
 
   # GET /custom_military_hats/1/edit
   def edit
+    @brands = Brand.all.map{|b| [b.name,b.id]}
   end
 
   # POST /custom_military_hats
   # POST /custom_military_hats.json
   def create
+    @custom_military_hat.brand_id = params[:brand_id]
     @custom_military_hat = CustomMilitaryHat.new(custom_military_hat_params)
 
     respond_to do |format|
@@ -45,6 +53,7 @@ class CustomMilitaryHatsController < ApplicationController
   # PATCH/PUT /custom_military_hats/1
   # PATCH/PUT /custom_military_hats/1.json
   def update
+    @custom_military_hat.brand_id = params[:brand_id]
     respond_to do |format|
       if @custom_military_hat.update(custom_military_hat_params)
         format.html { redirect_to @custom_military_hat, notice: 'Custom military hat was successfully updated.' }

@@ -5,8 +5,13 @@ class CustomSnapbacksController < ApplicationController
   # GET /custom_snapbacks
   # GET /custom_snapbacks.json
   def index
-    @custom_snapbacks = CustomSnapback.all
-    @order_item = current_order.order_items.new
+    if params[:brand].blank?
+      @custom_snapbacks = CustomSnapback.all
+      @order_item = current_order.order_items.new
+    else
+      @brand_id =Brand.find_by(name: params[:brand]).id
+      @custom_snapbacks = CustomSnapback.where(:brand_id => @brand_id)
+    end
   end
 
   # GET /custom_snapbacks/1
@@ -21,16 +26,20 @@ class CustomSnapbacksController < ApplicationController
   # GET /custom_snapbacks/new
   def new
     @custom_snapback = CustomSnapback.new
+    @brands = Brand.all.map{|b| [b.name,b.id]}
+    
   end
 
   # GET /custom_snapbacks/1/edit
   def edit
+    @brands = Brand.all.map{|b| [b.name,b.id]}
   end
 
   # POST /custom_snapbacks
   # POST /custom_snapbacks.json
   def create
     @custom_snapback = CustomSnapback.new(custom_snapback_params)
+    @custom_snapback.brand_id = params[:brand_id]
 
     respond_to do |format|
       if @custom_snapback.save
@@ -46,6 +55,7 @@ class CustomSnapbacksController < ApplicationController
   # PATCH/PUT /custom_snapbacks/1
   # PATCH/PUT /custom_snapbacks/1.json
   def update
+    @custom_snapback.brand_id = params[:brand_id]
     respond_to do |format|
       if @custom_snapback.update(custom_snapback_params)
         format.html { redirect_to @custom_snapback, notice: 'Custom snapback was successfully updated.' }
@@ -75,6 +85,6 @@ class CustomSnapbacksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def custom_snapback_params
-      params.require(:custom_snapback).permit(:image, :logo, :title, :price, :right_image, :left_image, :back_image, :order_id, :cart_id, :category_id, :quantity, :text, :product_detail)
+      params.require(:custom_snapback).permit(:image, :logo, :title, :price, :right_image, :left_image, :back_image, :order_id, :cart_id, :category_id, :quantity, :text, :product_detail, :brand_id)
     end
 end
