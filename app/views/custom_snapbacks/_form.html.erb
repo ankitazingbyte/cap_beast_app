@@ -1,4 +1,4 @@
-<%= form_for @custom_snapback, :html => {multipart => true } do |form| %>
+<%= form_for @custom_snapback, html: { miltipart: true } do |form| %>
   <% if custom_snapback.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(custom_snapback.errors.count, "error") %> prohibited this custom_snapback from being saved:</h2>

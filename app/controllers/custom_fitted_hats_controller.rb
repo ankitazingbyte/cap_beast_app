@@ -36,7 +36,7 @@ class CustomFittedHatsController < ApplicationController
   # POST /custom_fitted_hats
   # POST /custom_fitted_hats.json
   def create
-    @custom_fitted_hat.brand_id = params[:brand_id]
+    #@custom_fitted_hat.brand_id = params[:brand_id]
     @custom_fitted_hat = CustomFittedHat.new(custom_fitted_hat_params)
 
     respond_to do |format|

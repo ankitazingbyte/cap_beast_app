@@ -4,7 +4,40 @@
       <div class="product-details row">
         <div class="col-md-7" style="">
           <div class="label-steps text-center">
-            <div id="fpd" class="fpd-container fpd-bottom-actions-centered fpd-views-outside" style="margin:auto">
+            <div class="simpleLens-gallery-container" id="demo-1">
+              <div class="simpleLens-container">
+                  <div class="simpleLens-big-image-container">
+                      <a class="simpleLens-lens-image" data-lens-image="<%= asset_path @custom_snapback.image.url%>">
+                        <%= image_tag @custom_snapback.image.url, class: "simpleLens-big-image"%>
+                      </a>
+                  </div>
+              </div>
+
+              <div class="simpleLens-thumbnails-container">
+                  <a href="#" class="simpleLens-thumbnail-wrapper"
+                     data-lens-image="<%= @custom_snapback.image.url%>"
+                     data-big-image="<%=asset_path @custom_snapback.image.url%>">
+                        <%= image_tag @custom_snapback.image.thumb.url%>
+                  </a>
+                  <a href="#" class="simpleLens-thumbnail-wrapper"
+                     data-lens-image="<%= @custom_snapback.back_image.url%>"
+                     data-big-image="<%= @custom_snapback.back_image.url%>">
+                        <%= image_tag @custom_snapback.back_image.thumb.url%>
+                  </a>
+                  <a href="#" class="simpleLens-thumbnail-wrapper"
+                     data-lens-image="<%= @custom_snapback.left_image.url%>"
+                     data-big-image="<%= @custom_snapback.left_image.url%>">
+                        <%= image_tag @custom_snapback.left_image.thumb.url%>
+                  </a>
+                  <a href="#" class="simpleLens-thumbnail-wrapper"
+                     data-lens-image="<%= @custom_snapback.right_image.url%>"
+                     data-big-image="<%= @custom_snapback.right_image.url%>">
+                        <%= image_tag @custom_snapback.right_image.thumb.url%>
+                  </a>
+
+              </div>
+            </div>
+          <div id="fpd" class="fpd-container fpd-bottom-actions-centered fpd-views-outside" style="margin:auto">
               <input id="ga_price" name="ga_price" type="hidden" value="28.0" />
               <%= image_tag @custom_snapback.image.url, class: "show_img", id: "myclicked" %>
               <img id="output" class="centered"/>
@@ -353,6 +386,20 @@
   </div>
 </main>
 
+
+<script>
+    $(document).ready(function(){
+        $('#demo-1 .simpleLens-thumbnails-container img').simpleGallery({
+            loading_image: 'demo/images/loading.gif'
+        });
+
+        $('#demo-1 .simpleLens-big-image').simpleLens({
+            loading_image: 'demo/images/loading.gif'
+        });
+    });
+</script>
+
+
 <!-- ADD TEXT BOX MODAL  -->
   <script type="text/javascript">
 
@@ -443,13 +490,18 @@
   </script> -->
   <!-- EDITOR UPDATE -->
   <script>
-    $(function(){
-       $('#edit').froalaEditor({
-         editInPopup: true
-      })
-    });
+    // $(function(){
+    //    $('#edit').froalaEditor({
+    //      editInPopup: true
+    //   })
+    // });
   </script>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js"></script><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.0//js/froala_editor.pkgd.min.js"></script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script> -->
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/codemirror.min.js"></script> -->
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.0/mode/xml/xml.min.js"> -->
+    
+  </script>
+  <!-- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.6.0//js/froala_editor.pkgd.min.js"></script> -->
 <!-- END -->
 
 <!-- change image onmousehover written by me -->
@@ -523,11 +575,11 @@
 <!-- EDITOR -->
 <script>
   $(document).ready(function () {
-            $('#editor').jqxEditor({
-                height: 400,
-                width: getWidth('editor'),
-                tools: 'bold italic underline | left center right'
-            });
+            // $('#editor').jqxEditor({
+            //     height: 400,
+            //     width: getWidth('editor'),
+            //     tools: 'bold italic underline | left center right'
+            // });
         });
 </script>
 <!-- END -->

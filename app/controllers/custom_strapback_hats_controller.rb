@@ -36,7 +36,7 @@ class CustomStrapbackHatsController < ApplicationController
   # POST /custom_strapback_hats.json
   def create
     @custom_strapback_hat = CustomStrapbackHat.new(custom_strapback_hat_params)
-    @custom_snapback.brand_id = params[:brand_id]
+    @custom_strapback_hat.brand_id = params[:brand_id]
     respond_to do |format|
       if @custom_strapback_hat.save
         format.html { redirect_to @custom_strapback_hat, notice: 'Custom strapback hat was successfully created.' }

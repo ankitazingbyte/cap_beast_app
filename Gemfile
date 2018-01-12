@@ -59,3 +59,4 @@ gem 'devise'
 gem 'bootstrap-sass'
 gem "carrierwave"
 gem 'stripe'
+gem 'mini_magick'

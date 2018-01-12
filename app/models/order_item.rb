@@ -15,7 +15,7 @@ class OrderItem < ApplicationRecord
 
   validates :quantity, presence: true, numericality: { only_integer: true, greater_than: 0 }
   validate :order_present
-  validate :custom_snapback_present
+  #validate :custom_snapback_present
   # validate :custom_strapback_hat_present
   # validate :custom_trucker_hat_present
   # validate :custom_panel_hat_present
@@ -43,11 +43,11 @@ class OrderItem < ApplicationRecord
     end
 
   private
-    def custom_snapback_present
-      if custom_snapback.nil?
-        errors.add(:custom_snapback, "is not valid or is not active.")
-      end
-    end
+    # def custom_snapback_present
+    #   if custom_snapback.nil?
+    #     errors.add(:custom_snapback, "is not valid or is not active.")
+    #   end
+    # end
 
     def order_present
       if order.nil?
