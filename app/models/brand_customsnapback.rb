@@ -1,0 +1,2 @@
+class BrandCustomsnapback < ApplicationRecord
+end

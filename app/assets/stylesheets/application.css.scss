@@ -150,3 +150,33 @@ p, ol, ul, td {
     padding: 4px 46px;
         margin-right: 19px;
 }
+
+.font{
+    font-family: serif;
+    font-weight: 500;
+    color: #fff;
+    font-size: 75px;
+    line-height: .89;
+    margin: 0 0 38px -3px;
+    letter-spacing: 4px;
+    transition: all .3s ease;
+}
+   
+.btnchange{
+
+        letter-spacing: -2.5px;
+        padding: 9px 27px 6px;
+        text-indent: 2px;
+        font-size: 17px;
+}
+
+.faq{
+    font-family: "Karla","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 21px;
+    line-height: 1.43;
+    color: #444;
+} 
+
+.input_box {
+    box-shadow: none !important;
+}

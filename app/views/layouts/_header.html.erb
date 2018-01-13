@@ -3,12 +3,17 @@
 
 		<nav class="user-bar text-right">
 			<% if user_signed_in? %>
-				<%= link_to 'LOGOUT',destroy_user_session_path, method: :delete %>
+				Welcome <%= current_user.email %> Account
 			<% else %>
 				<%=link_to 'LOGIN', home_login_form_path %>
 			<% end %>
 			<span>/</span> 
-				<%= link_to 'Sign Up', home_signup_form_path %></p>
+			<% if user_signed_in? %>
+				<%= link_to 'LOGOUT',destroy_user_session_path, method: :delete %>
+			<% else %>
+				<%= link_to 'Sign Up', home_signup_form_path %>
+			<% end %>
+				
 		</nav>
 
 		<nav class="navbar navbar-default">
@@ -38,7 +43,7 @@
 											<div class="col-sm-3 col-xs-5">
 												<div class="text-center">
 													<picture>
-													<%= image_tag 'image4.jpg', class: "img-holder", id: "myholder" %>
+														<%= image_tag 'image4.jpg', class: "img-holder", id: "myholder" %>
 													</picture>
 												</div>
 											</div>
@@ -69,27 +74,50 @@
 									</div>
 								</div>
 							</li>
-							<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">BRANDS<span class="caret"></span></a>
-							<div class="dropdown-menu">
-								<div class="container-fluid">
-									<ul class="brands-list list-inline text-center">
-										<%= Brand.all.each do |brand| %>
-										<li>
-											<%= link_to brand.name, custom_snapbacks_path(brand: brand.name), class: "link" %>
-										</li>
-									 	<% end %>
-									</ul>
+  							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">BRANDS<span class="caret"></span></a>
+								<div class="dropdown-menu">
+									<div class="container-fluid">
+										<ul class="brands-list list-inline text-center">
+											<li>
+												<a class="menu-thumbail" href="brands/new-era.html">
+													<li class="dropdown">
+														<a href="#" data-toggle="dropdown" , class="dropdown-toggle"><%= image_tag "new-era-2x.png", width: "81" %><span class="caret"></span></a>
+														<div class="dropdown-menu">
+															<div class="container-fluid">
+																<ul class="brands-list list-inline text-center">
+																	<h2>CUSTOM SNAPBACK</h2>
+																	<%= Brand.all.each do |brand| %>
+																	<li>
+																	<%= link_to brand.name, custom_snapbacks_path(brand: brand.name), class: "link" %>
+																	</li>
+																 	<% end %>
+																</ul>
+															</div>
+														</div>
+													</li>
+												</a>
+											</li>
+										 	
+											<li>
+											<a class="menu-thumbail" href="brands/nike.html"><%= image_tag "nike-2x.png", width: "81" %></a>
+											</li>
+											<li>
+											<a class="menu-thumbail" href="brands/capbeast-classics.html"><%= image_tag "classics-2x.png", width: "81" %></a>
+											</li>
+											<li>
+											<a class="menu-thumbail" href="brands/oakley.html"><%= image_tag "oakley-2x.png", width: "81" %></a>
+											</li>
+										</ul>
+									</div>
 								</div>
-							</div>
 							</li>
-
-							<li><a href="faq.html">FAQ</a></li>
+							<li><%= link_to "FAQ", faqs_path%></li>
 						</ul>
 						<ul class="nav navbar-nav navbar-right">
 						<li>
 						</li>
-						<li><a href="request_quote.html">GET A QUOTE</a></li>
+						<li><%= link_to "GET A QUOTE", home_contact_path %></li>
 						</ul>
 					</div>
 				</div>

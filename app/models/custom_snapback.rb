@@ -6,6 +6,6 @@ class CustomSnapback < ApplicationRecord
 	mount_uploader :logo, LogoUploader
 	belongs_to :order, optional: true
 	has_many :order_items
-	belongs_to :brand
+	has_many :brands
 	 #default_scope { where(active: true) }
 end

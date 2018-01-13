@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180112122727) do
+ActiveRecord::Schema.define(version: 20180113121235) do
 
   create_table "add_texts", force: :cascade do |t|
     t.text "text"
@@ -32,8 +32,36 @@ ActiveRecord::Schema.define(version: 20180112122727) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "brand_customsnapbacks", force: :cascade do |t|
+    t.integer "brand_id"
+    t.integer "custom_snapback_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "brands", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "brands_custom_snapbacks", id: false, force: :cascade do |t|
+    t.integer "brand_id", null: false
+    t.integer "custom_snapback_id", null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "street_address"
+    t.string "country"
+    t.string "state"
+    t.string "city"
+    t.string "postal_code"
+    t.integer "phone"
+    t.string "logo"
+    t.string "details"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -211,6 +239,7 @@ ActiveRecord::Schema.define(version: 20180112122727) do
     t.integer "custom_athletic_hat_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["custom_athletic_hat_id"], name: "index_order_items_on_custom_athletic_hat_id"
     t.index ["custom_beanie_id"], name: "index_order_items_on_custom_beanie_id"
     t.index ["custom_bucket_hat_id"], name: "index_order_items_on_custom_bucket_hat_id"
@@ -237,6 +266,7 @@ ActiveRecord::Schema.define(version: 20180112122727) do
     t.integer "order_status_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user_id"
     t.index ["order_status_id"], name: "index_orders_on_order_status_id"
   end
 
@@ -273,6 +303,17 @@ ActiveRecord::Schema.define(version: 20180112122727) do
     t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "first_name"
+    t.string "last_name"
+    t.string "street_address"
+    t.string "country"
+    t.string "state"
+    t.string "city"
+    t.string "postal_code"
+    t.integer "phone"
+    t.string "logo"
+    t.string "details"
+    t.boolean "admin", default: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

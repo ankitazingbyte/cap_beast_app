@@ -1,7 +1,7 @@
 class CustomBeaniesController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_custom_beanie, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /custom_beanies
   # GET /custom_beanies.json
   def index

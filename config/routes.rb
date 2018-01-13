@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :contacts
   resources :brands
     get 'home/index' 
     root 'home#index' 
@@ -26,6 +27,8 @@ Rails.application.routes.draw do
   get 'home/checkout'
   get 'home/checkout_shipping'
   get 'home/checkout_payment'
+  get 'home/contact'
+  post 'home/contact_us_mailer'
   resources :shippings
   resources :addresses
   resources :order_statuses
@@ -33,5 +36,5 @@ Rails.application.routes.draw do
   resources :order_items, only: [:create, :update, :destroy]
   resources :orders
 	resources :charges
-  resource :cart, only: [:show]
+  resources :faqs
 end
